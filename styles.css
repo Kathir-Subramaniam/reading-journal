@@ -1,18 +1,26 @@
 html {
     background-color:darkslateblue;
-}
-
-h1 {
-    text-align: center;
     font-family: Satisfy, serif;
     color:white;
+    
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    font-size: x-large;
+    text-shadow: 9px 9px 9px black;
+    
 }
 
 .mainTable {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(194px,1fr));
-    gap: 5px;
+    gap: 10px;
 }
 
 .books {
@@ -22,7 +30,36 @@ h1 {
     font-family: Satisfy, serif;
     font-weight: lighter;
     border: 2px solid white;
+    border-radius: 5px;
     color: white;
-       
+    width: 194px;
+    height: 261px;
 
+}
+
+.bookCover {
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+.books:hover .bookCover{
+    transform: scale(1.2);
+}
+
+.bookImg {
+    margin: 1rem;
+    width: 25%;
+    height: 25%;
+}
+
+.synopsis {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: x-large;
+    font-family:'Times New Roman', Times, serif;
+    margin: 1rem;
+    padding: 1rem;
+    font-family: Satisfy, serif;
 }
