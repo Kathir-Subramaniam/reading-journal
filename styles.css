@@ -19,43 +19,48 @@ html {
 a:visited {
     color: white;
 }
-.comics {
-    background-image: url(https://img.freepik.com/free-vector/comic-style-wallpaper_79603-1248.jpg);
-    width: 50%;
-    height: 50%;
+/* .comics {
+    background-image: url();
+    width: 100%;
+    height: 100%;
     padding: 1rem;
+    margin: 1rem;
 }
 .movies {
-    background-image: url(https://media.istockphoto.com/id/1391013277/vector/realistic-film-stripe-wave-on-blue-background-with-place-for-text-modern-3d-isometric-film.jpg?s=612x612&w=0&k=20&c=HjOQAt6S-ZNh69WRF91LyBPEsVel3Ct0AawbPj8MQBM=);
-    width: 50%;
-    height: 50%;
+    background-image: url();
+    width: 100%;
+    height: 100%;
     padding: 1rem;
+    margin: 1rem;
 }
 
 .restaurants {
-    background-image: url(https://static8.depositphotos.com/1453997/963/v/450/depositphotos_9632573-stock-illustration-spanish-menu-template.jpg);
+    background-image: url();
     align-items: center;
-    width: 50%;
-    height: 50%;
+    background-position: center;
+    
+    width: 100%;
+    height: 100%;
     padding: 1rem;
+    margin: 1rem;
 }
 
 .countries {
     background-image: url();
-}
-.home {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    height:100%;
+    padding: 1rem;
     margin: 1rem;
-}
+    background-position: center;
+} */
+
 
 .categories {
-    display: flex;
-}
-
-.categories2 {
-    display: flex;
-    
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40%,1fr));
+    gap: 10px;
+    margin: 1rem;
 }
 
 .mainTable {
