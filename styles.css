@@ -1,10 +1,13 @@
 html {
-    background-color:darkslateblue;
+    background-color: darkslateblue;
     font-family: Satisfy, serif;
-    color:white;
-    
+    color: white;
 }
 
+h1 {
+    margin: 0;
+    padding: 1px;
+}
 .navBar {
     display: flex;
     flex-direction: row;
@@ -13,65 +16,58 @@ html {
     margin: 1rem;
     font-size: x-large;
     text-shadow: 9px 9px 9px black;
-    
+
 }
 
-a:visited {
+a {
     color: white;
 }
-/* .comics {
-    background-image: url();
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    margin: 1rem;
-}
-.movies {
-    background-image: url();
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-.restaurants {
-    background-image: url();
-    align-items: center;
-    background-position: center;
-    
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-.countries {
-    background-image: url();
-    width: 100%;
-    height:100%;
-    padding: 1rem;
-    margin: 1rem;
-    background-position: center;
-} */
-
 
 .categories {
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40%,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
     gap: 10px;
-    margin: 1rem;
+    margin: 2rem;
+}
+
+.comics,
+.movies,
+.restaurants,
+.countries {
+
+    align-items: center;
+    padding: 5px;
+    font-family: Satisfy, serif;
+    font-weight: lighter;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    transition: 0.3s ease;
+}
+
+.comics:hover,
+.movies:hover,
+.restaurants:hover,
+.countries:hover {
+    transform: scale(1.2);
+}
+.categoryCover {
+    aspect-ratio: 16/9;
 }
 
 .mainTable {
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(194px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
     gap: 10px;
 }
 
 .books {
-    
+
     align-self: center;
     padding: 5px;
     font-family: Satisfy, serif;
@@ -90,7 +86,7 @@ a:visited {
     transition: 0.3s ease;
 }
 
-.books:hover .bookCover{
+.books:hover .bookCover {
     transform: scale(1.2);
 }
 
@@ -101,7 +97,7 @@ a:visited {
     justify-content: space-around;
     align-items: center;
     font-size: x-large;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 1rem;
     padding: 1rem;
     font-family: Satisfy, serif;
@@ -118,4 +114,52 @@ a:visited {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (max-width: 672px) {
+    .heading {
+        font-size: larger;
+    }
+    .mainTable {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .books {
+        margin: auto;
+    }
+    .bookInfo {
+        flex-direction: column;
+    }
+
+}
+
+@media (min-width: 672px) {
+    body {
+        .mainTable {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .books {
+            margin: auto;
+        }
+        .bookInfo {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .categories {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        .mainTable {
+            grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
+            
+        }
+        .bookInfo {
+            flex-direction: row;
+        }
+    }
 }
