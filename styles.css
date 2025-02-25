@@ -118,6 +118,9 @@ a {
 
 @media (max-width: 672px) {
     .heading {
+        font-size: large;
+    }
+    .categoryHeading {
         font-size: larger;
     }
     .mainTable {
@@ -142,6 +145,9 @@ a {
         }
         .bookInfo {
             flex-direction: column;
+        }   
+        .categoryHeading {
+            font-size: larger;
         }
     }
 }
@@ -160,6 +166,9 @@ a {
         }
         .bookInfo {
             flex-direction: row;
+        }
+        .categoryHeading {
+            font-size: xx-large;
         }
     }
 }
