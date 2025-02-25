@@ -12,4 +12,5 @@ It can grow in the future to other things I could keep a log of, like restaurant
 - Created the "Solo Leveling" page and made it show the basic info about the comic. Will expand the page's features in the future.  
 - Made all three pages responsive for mobiles, tablets and laptops.  
 
-
+# ✅ Hand-in Requirements:
+Hand-in your project as git repository, including a README.md file. The repository should contain at least 3 HTML pages which are linked to each other. They must be styled using a variety of CSS rules (without framework). All pages should be responsive, using media queries and at least 2 breakpoints. 
