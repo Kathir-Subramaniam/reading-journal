@@ -8,7 +8,8 @@ h1 {
     margin: 0;
     padding: 1px;
 }
-.navBar {
+
+.nav-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -55,11 +56,11 @@ a {
 .countries:hover {
     transform: scale(1.2);
 }
-.categoryCover {
+.category-cover {
     aspect-ratio: 16/9;
 }
 
-.mainTable {
+.main-table {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
@@ -80,19 +81,19 @@ a {
 
 }
 
-.bookCover {
+.book-cover {
     width: 100%;
     height: 100%;
     transition: 0.3s ease;
 }
 
-.books:hover .bookCover {
+.books:hover .book-cover {
     transform: scale(1.2);
 }
 
 
 
-.bookInfo {
+.book-info {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -103,7 +104,7 @@ a {
     font-family: Satisfy, serif;
 }
 
-.bookImg {
+.book-img {
     justify-content: space-around;
     margin: 1rem;
     width: 25%;
@@ -120,16 +121,16 @@ a {
     .heading {
         font-size: large;
     }
-    .categoryHeading {
+    .category-heading {
         font-size: larger;
     }
-    .mainTable {
+    .main-table {
         grid-template-columns: repeat(2, 1fr);
     }
     .books {
         margin: auto;
     }
-    .bookInfo {
+    .book-info {
         flex-direction: column;
     }
 
@@ -137,16 +138,16 @@ a {
 
 @media (min-width: 672px) {
     body {
-        .mainTable {
+        .main-table {
             grid-template-columns: repeat(3, 1fr);
         }
         .books {
             margin: auto;
         }
-        .bookInfo {
+        .book-info {
             flex-direction: column;
         }   
-        .categoryHeading {
+        .category-heading {
             font-size: larger;
         }
     }
@@ -160,14 +161,14 @@ a {
 
 @media (min-width: 1024px) {
     body {
-        .mainTable {
+        .main-table {
             grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
             
         }
-        .bookInfo {
+        .book-info {
             flex-direction: row;
         }
-        .categoryHeading {
+        .category-heading {
             font-size: xx-large;
         }
     }
