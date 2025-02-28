@@ -1,7 +1,19 @@
-html {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    padding: 1rem;
+}
+
+body {
+    min-height: 100dvh;
+    min-width: 100dvw;
     background-color: darkslateblue;
     font-family: Satisfy, serif;
     color: white;
+    position: relative;
 }
 
 h1 {
@@ -9,13 +21,59 @@ h1 {
     padding: 1px;
 }
 
+.translucent-background {
+    background-color:rgba(0,0,0,0.4);
+    inset: 0;
+    z-index: 1;
+    position: absolute;
+}
+
+#main-div {
+    transition: 0.5s;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: darkslateblue;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: xx-large;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: brown;
+}
+
+.sidebar .close-button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 15%;
+    font-size:xx-large;
+    margin-left: 50px;
+}
+
 .nav-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem;
-    font-size: x-large;
+    padding: 1rem;
+    font-size: x-large; 
     text-shadow: 9px 9px 9px black;
 
 }
@@ -93,28 +151,53 @@ a {
 
 
 
-.book-info {
+.book-page {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-size: x-large;
     font-family: 'Times New Roman', Times, serif;
-    margin: 1rem;
-    padding: 1rem;
+    margin: auto;
+    padding: auto;
+    gap: 10px;
     font-family: Satisfy, serif;
 }
 
+.book-info {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
 .book-img {
-    justify-content: space-around;
-    margin: 1rem;
-    width: 25%;
-    height: 25%;
+    justify-content: space-between;
+    margin: auto;
+    padding: 1rem;
+    width: 194px;
+    height: 261px;
+}
+
+.status, .chapters, .type, .rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 194px;
+    height:50px;
+    margin: auto;
+}
+
+.completed {
+    color: greenyellow;
 }
 
 .synopsis {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
+    padding: 1rem;
 }
 
 @media (max-width: 672px) {
@@ -130,8 +213,14 @@ a {
     .books {
         margin: auto;
     }
-    .book-info {
+    .book-page {
         flex-direction: column;
+    }
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: large;
     }
 
 }
@@ -144,7 +233,7 @@ a {
         .books {
             margin: auto;
         }
-        .book-info {
+        .book-page {
             flex-direction: column;
         }   
         .category-heading {
@@ -165,7 +254,7 @@ a {
             grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
             
         }
-        .book-info {
+        .book-page {
             flex-direction: row;
         }
         .category-heading {
