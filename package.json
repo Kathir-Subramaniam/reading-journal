@@ -1,0 +1,29 @@
+{
+  "name": "readingjournal",
+  "version": "1.0.0",
+  "description": "The idea behind the website was to have a way for me to keep logs of everything I have done.  \r The primary use case is for me to keep tracks of comics that I have read.  \r It should prove very useful for keeping track of the amount of chapters I have read, what my thoughts on it were and other similar features.  \r It can grow in the future to other things I could keep a log of, like restaurants I liked or movies I enjoyed.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kathir-Subramaniam/reading-journal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kathir-Subramaniam/reading-journal/issues"
+  },
+  "homepage": "https://github.com/Kathir-Subramaniam/reading-journal#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
