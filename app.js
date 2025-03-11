@@ -11,14 +11,14 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true }))
 app.use(express.static('public'))
 app.get('/home', (request, response) => {
-    response.sendFile(__dirname+'/home.html')
+    response.sendFile(__dirname+'/index.html')
 })
 
 
 app.get('/comics/:id', (request, response) => {
     const comicsId = request.params.id
     console.log(comicsId)
-    response.sendFile(__dirname+'/'+comicsId+'.html')
+    response.sendFile(__dirname+'/comics/'+comicsId+'.html')
 })
 
 app.get('/comics', (request, response) => {

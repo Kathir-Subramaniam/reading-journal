@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Omniscient Reader's Viewpoint
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <a href="/home"><img id="home-button" src="../home.svg" width=50px height=50px></a>
+            <h1 class="heading"> KD's Reading Journal</h1>
+            <img src="../menu.svg" width=60px height=60px>
+        </nav>
+    </header>
+    <main>
+        <article class="book-page">
+            <section class="book-info">
+                <img class="book-img"
+                    src="https://gg.asuracomic.net/storage/media/105/conversions/9b59fdec-optimized.webp">
+                <section class="rating">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                </section>
+                <section class="status">
+                    <p>Status</p>
+                    <p class="completed">Ongoing</p>
+                </section>
+                <section class="chapters">
+                    <p>Chapters</p>
+                    <p class="">252</p>
+                </section>
+                <section class="type">
+                    <p>Type</p>
+                    <p class="">Manhwa</p>
+                </section>
+            </section>
+
+            <section class="synopsis">
+                <h1>Omniscient Reader's Viewpoint</h1>
+                <p>‘This is a development that I know of.’The moment he thought that the world had been destroyed, a new
+                    universe had unfolded.The new life of an ordinary reader begins within the world of the novel, a
+                    novel that he alone had finished.</p>
+            </section>
+            <section class="personal-review">
+                <form action="/personal-reviews" method="post">
+                    <h1>Perosnal Reviews</h1>
+                    <p>
+                        <label>Name*:</label>
+                        <input type="text" name="name" id="name" required />
+                    </p>
+                    <p>
+                        <label>Review*:</label>
+                        <textarea name="review" id="review" required></textarea>
+                    </p>
+                    <p>
+                        <button>Post Review</button>
+                    </p>
+                </form>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>
