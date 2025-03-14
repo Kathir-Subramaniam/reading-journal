@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../includes/head', {title: title}) %>
+
+<body>
+    <%- include('../includes/header', {heading: heading}) %>
+    <main>
+        <article class="book-page">
+            <section class="book-info">
+                <img class="book-img"
+                    src="<%= bookImg %>">
+                <section class="rating">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                </section>
+                <section class="status">
+                    <p>Status</p>
+                    <p class="completed"><%= status %></p>
+                </section>
+                <section class="chapters">
+                    <p>Chapters</p>
+                    <p class=""><%= chapters %></p>
+                </section>
+                <section class="type">
+                    <p>Type</p>
+                    <p class=""><%= type %></p>
+                </section>
+            </section>
+
+            <section class="synopsis">
+                <h1><%= title %></h1>
+                <p><%= description %></p>
+            </section>
+            <section class="personal-review">
+                <form action="/personal-reviews" method="post">
+                    <h1>Perosnal Reviews</h1>
+                    <p>
+                        <label>Name*:</label>
+                        <input type="text" name="name" id="name" required />
+                    </p>
+                    <p>
+                        <label>Review*:</label>
+                        <textarea name="review" id="review" required></textarea>
+                    </p>
+                    <p>
+                        <button>Post Review</button>
+                    </p>
+                </form>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Infinite Mage
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <a href="/home"><img id="home-button" src="../home.svg" width=50px height=50px></a>
+            <h1 class="heading"> KD's Reading Journal</h1>
+            <img src="../menu.svg" width=60px height=60px>
+        </nav>
+    </header>
+    <main>
+        <article class="book-page">
+            <section class="book-info">
+                <img class="book-img"
+                    src="https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-optimized.webp">
+                <section class="rating">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                    <img src="../star.svg" width="12%">
+                </section>
+                <section class="status">
+                    <p>Status</p>
+                    <p class="completed">Ongoing</p>
+                </section>
+                <section class="chapters">
+                    <p>Chapters</p>
+                    <p class="">108</p>
+                </section>
+                <section class="type">
+                    <p>Type</p>
+                    <p class="">Manhwa</p>
+                </section>
+            </section>
+
+            <section class="synopsis">
+                <h1>Infinite Mage</h1>
+                <p>Abandoned at birth in a stable, Shirone was raised by commoners.As a child, he had gifted Insight and had learned how to read. After visiting the city, he finally saw the workings of magic, which he was immensely curious about.This inspired Shirone's dream of becoming a mage. However, the city was a place with a cruel and rigid social hierarchy. Here, Shirone discovered the hidden side of the world before he even reached adulthood...Will Shirone be able to achieve his dream of becoming a mage in this twisted world? </p>
+            </section>
+            <section class="personal-review">
+                <form action="/personal-reviews" method="post">
+                    <h1>Perosnal Reviews</h1>
+                    <p>
+                        <label>Name*:</label>
+                        <input type="text" name="name" id="name" required />
+                    </p>
+                    <p>
+                        <label>Review*:</label>
+                        <textarea name="review" id="review" required></textarea>
+                    </p>
+                    <p>
+                        <button>Post Review</button>
+                    </p>
+                </form>
+            </section>
+        </article>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+{
+    "comic": {
+        "pageTitle": "KD's Reading Journal",
+        "data": [ {
+            "bookImg": "https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-optimized.webp",
+            "bookTitle": "Solo Leveling",
+            "bookDescription": "10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as 'Hunters'. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I'm someone who has to risk his life in the lowliest of dungeons, the 'World's Weakest'. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!",
+            "status": "Completed",
+            "chapters": "200",
+            "type": "Manhwa",
+            "slug": "solo-leveling"
+        }],
+        "solo-leveling": {
+            "bookImg": "https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-optimized.webp",
+            "bookTitle": "Solo Leveling",
+            "bookDescription": "10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as 'Hunters'. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I'm someone who has to risk his life in the lowliest of dungeons, the 'World's Weakest'. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!",
+            "status": "Completed",
+            "chapters": "200",
+            "type": "Manhwa"
+        },
+        "infinite-mage": {
+            "bookImg": "https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-optimized.webp",
+            "bookTitle": "Infinite Mage",
+            "bookDescription": "Abandoned at birth in a stable, Shirone was raised by commoners.As a child, he had gifted Insight and had learned how to read. After visiting the city, he finally saw the workings of magic, which he was immensely curious about.This inspired Shirone's dream of becoming a mage. However, the city was a place with a cruel and rigid social hierarchy. Here, Shirone discovered the hidden side of the world before he even reached adulthood...Will Shirone be able to achieve his dream of becoming a mage in this twisted world?",
+            "status": "Ongoing",
+            "chapters": "108",
+            "type": "Manhwa"
+        },
+        "omniscient-readers-viewpoint": {
+            "bookImg": "https://gg.asuracomic.net/storage/media/105/conversions/9b59fdec-optimized.webp",
+            "bookTitle": "Omniscient Reader's Viewpoint",
+            "bookDescription": "‘This is a development that I know of.’The moment he thought that the world had been destroyed, a new universe had unfolded.The new life of an ordinary reader begins within the world of the novel, a novel that he alone had finished.",
+            "status": "Ongoing",
+            "chapters": "252",
+            "type": "Manhwa"
+        },
+        "": {
+            "bookImg": "",
+            "bookTitle": "",
+            "bookDescription": "",
+            "status": "",
+            "chapters": "",
+            "type": ""
+        }
+    }
+}
