@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
 
-<%- include('includes/head', {title: "KD's Logbook"}) %>
+<%- include('includes/head', {title: title}) %>
 
 <body>
-    <header>
-        <nav class="nav-bar">
-            <a href="/home"><img id="home-button" src="home.svg" width=50px height=50px></a>
-            <h1 class="heading"> KD's Logbook</h1>
-            <img onclick="openNav()" src="menu.svg" width=60px height=60px>
-        </nav>
-    </header>
+    <div id="main-div">
+        <%- include('./includes/header', {heading: title}) %>
     <main>
         <div class="categories">
             <div class="comics">
@@ -50,13 +45,9 @@
             </div>
         </div>
     </main>
-    <div id="translucent-background" class="translucent-background" onclick="closeNav()" hidden></div>
-    <div id="comics-sidebar" class="sidebar">
-        <a href=""><img class="close-button" onclick="closeNav()" src="../close.svg"></a>
-        <a href="home.html" class="">Home</a>
-        <a href="comics.html" class="">Comics</a>
     </div>
     
+    <%- include('./includes/sidebar') %>
     <script src="../script.js"></script>
 </body>
 

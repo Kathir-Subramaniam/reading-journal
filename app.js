@@ -5,6 +5,7 @@ app.set('view engine', 'ejs')
 import * as path from 'path'
 import { fileURLToPath } from 'url'
 import data from './views/comics/comicsdb.json' with {type: "json"}
+import { title } from 'process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = 3000
@@ -14,31 +15,36 @@ app.use(express.urlencoded({extended: true }))
 app.use(express.static('public'))
 
 app.get('/home', (request, response) => {
-    // response.sendFile(__dirname+'/index.html')
-    response.render('index')
+    console.log(data.home.pageTitle)
+    response.render('index', {title: data.home.pageTitle})
 })
-
 
 app.get('/comics/:id', (request, response) => {
     const comicsId = request.params.id
     console.log(comicsId)
-    console.log(data.comic);
-
-    console.log(data.comic[comicsId].bookTitle);
-
+    // console.log(data.comic);
+    // console.log(data.comic[comicsId].bookTitle);
+    
+    const comic = data.comic.data.find((comic) => comic.slug === comicsId)
+    console.log(comic.slug)
+    if (!comic){
+        return response.render()
+    }
     
     response.render('comics/comic-template', {heading: data.comic.pageTitle, 
-        title: data.comic[comicsId].bookTitle, 
-        bookImg: data.comic[comicsId].bookImg, 
-        description: data.comic[comicsId].bookDescription,
-        chapters: data.comic[comicsId].chapters,
-        status: data.comic[comicsId].status,
-        type: data.comic[comicsId].type
+        title: comic.bookTitle, 
+        bookImg: comic.bookImg, 
+        description: comic.bookDescription,
+        chapters: comic.chapters,
+        status: comic.status,
+        type: comic.type,
+        slug: comic.slug
     })
 })
 
 app.get('/comics', (request, response) => {
-    response.render('comics')
+    // console.log(data.comic.data);
+    response.render('comics', {data: data.comic.data, title: data.comic.pageTitle})
 })
 
 app.post('/personal-reviews', (request,response) => {

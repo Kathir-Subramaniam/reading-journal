@@ -1,124 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-<%- include('includes/head', {title: 'Reading Journal'}) %>
+<%- include('./includes/head', {title: title}) %>
 
 <body id="body">
     <div id="main-div">
-        <header>
-            <nav class="nav-bar">
-                <a href="/home"><img id="home-button" src="../home.svg" width=50px height=50px></a>
-                <h1 class="heading"> KD's Reading Journal</h1>
-                <!-- <span onclick="openNav()">&#9776;</span> -->
-                <img onclick="openNav()" src="../menu.svg" width=60px height=60px>
-            </nav>
-        </header>
-
+        <%- include('./includes/header', {heading: title}) %>
         <main class="main">
-
             <div class="main-table">
-                <!-- <% for(var i=0; i < data.length; i++) { %>
+                <% for(var i=0; i < data.length; i++) { %>
                     <div class="books">
-                        <img class="book-cover"
-                            src="https://mediatoon-distribution.com/wp-content/uploads/2022/04/adventures-of-tintin-VA.jpg"
-                            width=194px height=261px>
-                    </div>
-                <% } %> -->
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://mediatoon-distribution.com/wp-content/uploads/2022/04/adventures-of-tintin-VA.jpg"
-                        width=194px height=261px>
-                    <!-- <p>The Adventures of Tintin</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover" src="https://m.media-amazon.com/images/I/71RLvM5SgSL._AC_UF894,1000_QL80_.jpg"
-                        width=194px height=261px>
-                    <!-- <p>Asterix</p> -->
-                </div>
-                <div class="books">
-                    <a href="/comics/solo-leveling"><img class="book-cover"
-                            src="https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-optimized.webp"
+                        <% console.log(data[i].slug) %>
+                        <a href="/comics/<%= data[i].slug %>"><img class="book-cover"
+                            src="<%= data[i].bookImg %>"
                             width=194px height=261px></a>
-                    <!-- <p>Solo Leveling</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/272496/conversions/01JMHFP0DBPD906JMCZNAKG1RH-optimized.webp"
-                        width=194px height=261px>
-                    <!-- <p>Solo Max-Level Newbie</p> -->
-                </div>
-                <div class="books">
-                    <a href="/comics/omniscient-readers-viewpoint"><img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/105/conversions/9b59fdec-optimized.webp" width=194px
-                        height=261px></a>
-                    <!-- <p>Omniscient Reader's Viewpoint</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/258/conversions/01J3BAY4P9AZ1Y9GGSAAP2HQ1K-optimized.webp"
-                        width=194px height=261px>
-                    <!-- <p>The World After The End</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/267698/conversions/01JJST2HQ54CXEV2YQN2621FTB-optimized.webp"
-                        width=194px height=261px>
-                    <!-- <p>Return of the Disaster Class Hero</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/219/conversions/6a016457-optimized.webp" width=194px
-                        height=261px>
-                    <!-- <p>Eternally Regressing Knight</p> -->
-                </div>
-                <div class="books">
-                    <a href="/comics/infinite-mage"><img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-optimized.webp" width=194px
-                        height=261px></a>
-                    <!-- <p>Infinite Mage</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/80/conversions/23b345c9-optimized.webp" width=194px
-                        height=261px>
-                    <!-- <p>Swordmaster's Youngest Son</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/163/conversions/fc6b81ea-optimized.webp" width=194px
-                        height=261px>
-                    <!-- <p>The Greatest Estate Developer</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://preview.redd.it/return-of-the-mount-hua-sect-v0-5g3h9josmr0b1.jpg?width=640&crop=smart&auto=webp&s=574fc45ed8051921109fad7c5abe8b47e58e384f"
-                        width=194px height=261px>
-                    <!-- <p>Return of the Mount Hua Sect</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/117/conversions/06200da6-optimized.webp" width=194px
-                        height=261px>
-                    <!-- <p>Insanely-Talented Player</p> -->
-                </div>
-                <div class="books">
-                    <img class="book-cover"
-                        src="https://gg.asuracomic.net/storage/media/134/conversions/13623e9f-optimized.webp" width=194px
-                        height=261px>
-                    <!-- <p>Academy's Genius Swordmaster</p> -->
-                </div>
+                    </div>
+                <% } %>
             </div>
         </main>
     </div>
     
-    <div id="translucent-background" class="translucent-background" onclick="closeNav()" hidden></div>
-    <div id="comics-sidebar" class="sidebar">
-        <a href=""><img class="close-button" onclick="closeNav()" src="../close.svg"></a>
-        <a href="home.html" class="">Home</a>
-        <a href="comics.html" class="">Comics</a>
-    </div>
-    
+    <%- include('./includes/sidebar') %>
     <script src="../script.js"></script>
+
 </body>
 
 </html>

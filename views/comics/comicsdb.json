@@ -1,46 +1,144 @@
 {
+    "home": {
+        "pageTitle":"KD's Logbook"
+    },
     "comic": {
         "pageTitle": "KD's Reading Journal",
-        "data": [ {
-            "bookImg": "https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-optimized.webp",
-            "bookTitle": "Solo Leveling",
-            "bookDescription": "10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as 'Hunters'. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I'm someone who has to risk his life in the lowliest of dungeons, the 'World's Weakest'. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!",
-            "status": "Completed",
-            "chapters": "200",
-            "type": "Manhwa",
-            "slug": "solo-leveling"
-        }],
-        "solo-leveling": {
-            "bookImg": "https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-optimized.webp",
-            "bookTitle": "Solo Leveling",
-            "bookDescription": "10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as 'Hunters'. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I'm someone who has to risk his life in the lowliest of dungeons, the 'World's Weakest'. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!",
-            "status": "Completed",
-            "chapters": "200",
-            "type": "Manhwa"
-        },
-        "infinite-mage": {
-            "bookImg": "https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-optimized.webp",
-            "bookTitle": "Infinite Mage",
-            "bookDescription": "Abandoned at birth in a stable, Shirone was raised by commoners.As a child, he had gifted Insight and had learned how to read. After visiting the city, he finally saw the workings of magic, which he was immensely curious about.This inspired Shirone's dream of becoming a mage. However, the city was a place with a cruel and rigid social hierarchy. Here, Shirone discovered the hidden side of the world before he even reached adulthood...Will Shirone be able to achieve his dream of becoming a mage in this twisted world?",
-            "status": "Ongoing",
-            "chapters": "108",
-            "type": "Manhwa"
-        },
-        "omniscient-readers-viewpoint": {
-            "bookImg": "https://gg.asuracomic.net/storage/media/105/conversions/9b59fdec-optimized.webp",
-            "bookTitle": "Omniscient Reader's Viewpoint",
-            "bookDescription": "‘This is a development that I know of.’The moment he thought that the world had been destroyed, a new universe had unfolded.The new life of an ordinary reader begins within the world of the novel, a novel that he alone had finished.",
-            "status": "Ongoing",
-            "chapters": "252",
-            "type": "Manhwa"
-        },
+        "data": [ 
+            {
+                "bookImg": "https://mediatoon-distribution.com/wp-content/uploads/2022/04/adventures-of-tintin-VA.jpg",
+                "bookTitle": "The Adventures of Tintin",
+                "bookDescription": "The stories center around a young reporter from Belgium named Tintin, who travels the world and has many exciting adventures with his dog, a white wire fox terrier named Snowy (Milou, in French) and later (starting with The Crab with the Golden Claws in 1941) his friend, Captain Haddock, a bearded drunk with a temper. Other popular characters include Professor Cuthbert Calculus (Professeur Tryphon Tournesol) an absent-minded and mostly deaf (but he insists he's hard of hearing) scientist and inventor, and Thomson and Thompson (Dupond et Dupont), two silly detectives.",
+                "status": "Completed",
+                "chapters": "24",
+                "type": "Comic Strip",
+                "slug": "the-adventures-of-tintin"
+            },  
+            {
+                "bookImg": "https://m.media-amazon.com/images/I/71RLvM5SgSL._AC_UF894,1000_QL80_.jpg",
+                "bookTitle": "Asterix and Obelix",
+                "bookDescription": "Asterix and Obelix, also known as The Adventures of Asterix in some adaptations, is a French comic album series about a Gaulish village which, thanks to a magic potion that enhances strength, resists the forces of Julius Caesar's Roman Republic Army in a nonhistorical telling of the time after the Gallic Wars. Many adventures take the titular hero Asterix and his friend Obelix to Rome and beyond.",
+                "status": "Completed",
+                "chapters": "40",
+                "type": "Comic Book",
+                "slug": "asterix-and-obelix"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-optimized.webp",
+                "bookTitle": "Solo Leveling",
+                "bookDescription": "10 years ago, after “the Gate” that connected the real world with the monster world opened, some of the ordinary, everyday people received the power to hunt monsters within the Gate. They are known as 'Hunters'. However, not all Hunters are powerful. My name is Sung Jin-Woo, an E-rank Hunter. I'm someone who has to risk his life in the lowliest of dungeons, the 'World's Weakest'. Having no skills whatsoever to display, I barely earned the required money by fighting in low-leveled dungeons… at least until I found a hidden dungeon with the hardest difficulty within the D-rank dungeons! In the end, as I was accepting death, I suddenly received a strange power, a quest log that only I could see, a secret to leveling up that only I know about! If I trained in accordance with my quests and hunted monsters, my level would rise. Changing from the weakest Hunter to the strongest S-rank Hunter!",
+                "status": "Completed",
+                "chapters": "200",
+                "type": "Manhwa",
+                "slug": "solo-leveling"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/272496/conversions/01JMHFP0DBPD906JMCZNAKG1RH-optimized.webp",
+                "bookTitle": "Solo Max Level Newbie",
+                "bookDescription": "Jinhyuk, a gaming Nutuber, was the only person who saw the ending of the game [Tower of Trials]. However, when the game's popularity declined, it became difficult for him to continue making a living as a gaming Nutuber. Since he already saw the ending of the game, he was about to quit playing. But that day, [Tower of Trials] became reality, and Jinhyuk, who knew about every single thing in the game, took over everything faster than anyone possibly could! 'I'll show you what a true pro is like.",
+                "status": "Ongoing",
+                "chapters": "197",
+                "type": "Manhwa",
+                "slug": "solo-max-level-newbie"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/105/conversions/9b59fdec-optimized.webp",
+                "bookTitle": "Omniscient Reader's Viewpoint",
+                "bookDescription": "‘This is a development that I know of.’The moment he thought that the world had been destroyed, a new universe had unfolded.The new life of an ordinary reader begins within the world of the novel, a novel that he alone had finished.",
+                "status": "Ongoing",
+                "chapters": "252",
+                "type": "Manhwa",
+                "slug": "omniscient-readers-viewpoint"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/258/conversions/01J3BAY4P9AZ1Y9GGSAAP2HQ1K-optimized.webp",
+                "bookTitle": "The World After The End",
+                "bookDescription": "An original story, brought to you by the author of <Omniscient Reader's Viewpoint>, Author Sing-Shong. This is about a man who didn't regress when everyone else returned back to the past.Humans were suddenly summoned to become “Walkers”, and they needed to clear the tower to save the world. . . Floor 77: The “Stone of Regression” was discovered.Walkers could now “return” to the past. Slowly, everyone left. . . Humanity’s last hope, “Carpe Diem”, was formed, made up of people who refused to abandon the world. . . The last Walker reached floor 100.He no longer knew what to believe.",
+                "status": "Ongoing",
+                "chapters": "171",
+                "type": "Manhwa",
+                "slug": "the-world-after-the-end"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/267698/conversions/01JJST2HQ54CXEV2YQN2621FTB-optimized.webp",
+                "bookTitle": "Return of the Disaster Class Hero",
+                "bookDescription": "I was the greatest hero on Earth.'But he's dead. How could the guy we've killed come back?' 'I dunno. But if he can come back, just let him.' I really came back after 20 years? 'Why're you so surprised? What? Did you do something to hurt your conscience?'You bastards. Just you wait.",
+                "status": "Ongoing",
+                "chapters": "117",
+                "type": "Manhwa",
+                "slug": "return-of-the-disaster-class-hero"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/219/conversions/6a016457-optimized.webp",
+                "bookTitle": "Eternally Regressing Knight",
+                "bookDescription": "'You're a genius.' Those words he heard as a child were poison. Encrid dreamed of becoming a knight, but he soon realized it was futile. 'You want to live by the sword with that level of skill?' Some laughed at him. 'Just give up.' Some advised him against it. Despite that, his dream remained steadfast. He slept less, ran more, and trained harder. One day, he died, having been stabbed in the neck. Encrid opened his eyes again to 'today's' morning.",
+                "status": "Ongoing",
+                "chapters": "48",
+                "type": "Manhwa",
+                "slug": "eternally-regressing-knight"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-optimized.webp",
+                "bookTitle": "Infinite Mage",
+                "bookDescription": "Abandoned at birth in a stable, Shirone was raised by commoners.As a child, he had gifted Insight and had learned how to read. After visiting the city, he finally saw the workings of magic, which he was immensely curious about.This inspired Shirone's dream of becoming a mage. However, the city was a place with a cruel and rigid social hierarchy. Here, Shirone discovered the hidden side of the world before he even reached adulthood...Will Shirone be able to achieve his dream of becoming a mage in this twisted world?",
+                "status": "Ongoing",
+                "chapters": "108",
+                "type": "Manhwa",
+                "slug": "infinite-mage"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/80/conversions/23b345c9-optimized.webp",
+                "bookTitle": "Swordmaster’s Youngest Son",
+                "bookDescription": "Jin Runcandel was the youngest son of Runcandel, the land's most prestigious swordsman family... And the biggest failure in Runcandel history.He, who was kicked out miserably and came to a meaningless end, was given another chance.'How do you want to use this power?'' 'I want to use it for myself.' Memories of his past life, overwhelming talent, and a contract with God... The preparations to become the greatest are complete.",
+                "status": "Ongoing",
+                "chapters": "154",
+                "type": "Manhwa",
+                "slug": "swordmasters-youngest-son"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/163/conversions/fc6b81ea-optimized.webp",
+                "bookTitle": "The Greatest Estate Developer",
+                "bookDescription": "When civil engineering student Suho Kim falls asleep reading a fantasy novel, he wakes up as a character in the book! Suho is now in the body of Lloyd Frontera, a lazy noble who loves to drink, and whose family is in a mountain of debt. Using his engineering knowledge, Suho designs inventions to avert the terrible future that lies in wait for him. With the help of a giant hamster, a knight, and the world’s magic, can Suho dig his new family out of debt and build a better future?",
+                "status": "Ongoing",
+                "chapters": "182",
+                "type": "Manhwa",
+                "slug": "the-greatest-estate-developer"
+            },
+            {
+                "bookImg": "https://preview.redd.it/return-of-the-mount-hua-sect-v0-5g3h9josmr0b1.jpg?width=640&crop=smart&auto=webp&s=574fc45ed8051921109fad7c5abe8b47e58e384f",
+                "bookTitle": "Return of the Mount Hua Sect",
+                "bookDescription": "Chung Myung, The 13th Disciple of the Mount Hua Sect, One of the 3 Great Swordsmen, Plum Blossom Sword Saint, defeated Chun Ma, who brought destruction and disarray onto the world. After the battle, he breathes his last breath on top of the headquarter mountain of the Heavenly Demon Sect. He is reborn after 100 years in the body of a child. ......What? The Mount Hua Sect has fallen? What kind of nonsense is that!?",
+                "status": "Ongoing",
+                "chapters": "152",
+                "type": "Manhwa",
+                "slug": "return-of-the-mount-hua-sect"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/117/conversions/06200da6-optimized.webp",
+                "bookTitle": "Insanely-Talented Player",
+                "bookDescription": "It has been six years since the game to decide the world's fate began. The strongest player, Hero King Kang Yoosung, who has never lost his first place as the top ranker, greets a new season. 'It was… over for me a fucking long time ago. I'm just doing this for the money.' [Provocation stat increasing exponentially!] [The Clown Lord expresses satisfaction with contractor's behavior!] The survival journey of a player with insane talent begins now!",
+                "status": "Ongoing",
+                "chapters": "67",
+                "type": "Manhwa",
+                "slug": "insanely-talented-player"
+            },
+            {
+                "bookImg": "https://gg.asuracomic.net/storage/media/134/conversions/13623e9f-optimized.webp",
+                "bookTitle": "Academy's Genius Swordmaster",
+                "bookDescription": "Ronan lived a wasteful life filled with regrets. A second chance befalls him at the end of his futile life. He went back to the time when he was a ten-year-old child! For the people who sacrificed themselves for him, he becomes determined to live a new life.",
+                "status": "Ongoing",
+                "chapters": "91",
+                "type": "Manhwa",
+                "slug": "academys-genius-swordmaster"
+            }],
         "": {
             "bookImg": "",
             "bookTitle": "",
             "bookDescription": "",
             "status": "",
             "chapters": "",
-            "type": ""
+            "type": "",
+            "slug": ""
         }
     }
 }
