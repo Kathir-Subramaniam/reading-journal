@@ -6,6 +6,7 @@ import * as path from 'path'
 import { fileURLToPath } from 'url'
 import data from './views/comics/comicsdb.json' with {type: "json"}
 import { title } from 'process';
+import { error } from 'console';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PORT = 3000
@@ -26,9 +27,9 @@ app.get('/comics/:id', (request, response) => {
     // console.log(data.comic[comicsId].bookTitle);
     
     const comic = data.comic.data.find((comic) => comic.slug === comicsId)
-    console.log(comic.slug)
+    //console.log(comic.slug)
     if (!comic){
-        return response.render()
+        return response.render('404', {error: "I Haven't Read This Comic Yet..."})
     }
     
     response.render('comics/comic-template', {heading: data.comic.pageTitle, 
@@ -56,7 +57,7 @@ app.post('/personal-reviews', (request,response) => {
 
 app.all('*', (request,response) => {
     if (request.accepts('html')) {
-        response.render('404')
+        response.render('404', {error: "This Page Is Not Found"})
     }
     else if (request.accepts('json')) {
         response.status(404).json({error: "404 Not Found"})
