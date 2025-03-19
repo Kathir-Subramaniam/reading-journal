@@ -21,7 +21,8 @@
   "homepage": "https://github.com/Kathir-Subramaniam/reading-journal#readme",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "node": "^20.19.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
