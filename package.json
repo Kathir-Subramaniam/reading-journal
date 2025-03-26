@@ -20,8 +20,11 @@
   },
   "homepage": "https://github.com/Kathir-Subramaniam/reading-journal#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.12.1",
     "node": "^20.19.0"
   },
   "devDependencies": {

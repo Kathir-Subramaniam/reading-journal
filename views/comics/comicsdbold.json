@@ -1,4 +1,10 @@
-[ 
+{
+    "home": {
+        "pageTitle":"KD's Logbook"
+    },
+    "comic": {
+        "pageTitle": "KD's Reading Journal",
+        "data": [ 
             {
                 "bookImg": "https://mediatoon-distribution.com/wp-content/uploads/2022/04/adventures-of-tintin-VA.jpg",
                 "bookTitle": "The Adventures of Tintin",
@@ -133,4 +139,15 @@
                 "chapters": "",
                 "type": "",
                 "slug": "new-comic"
-            }]
+            }],
+        "": {
+            "bookImg": "",
+            "bookTitle": "",
+            "bookDescription": "",
+            "status": "",
+            "chapters": "",
+            "type": "",
+            "slug": ""
+        }
+    }
+}
