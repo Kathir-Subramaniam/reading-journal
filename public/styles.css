@@ -32,6 +32,19 @@ h1 {
     transition: 0.5s;
 }
 
+.comic-template-main-div {
+    background-color: darkslateblue;
+    font-family: Satisfy, serif;
+    color: white;
+    align-self: center;
+    padding: 5px;
+    font-family: Satisfy, serif;
+    font-size: xx-large;
+    font-weight: lighter;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+}
 .sidebar {
     height: 100%;
     width: 0;
@@ -151,8 +164,49 @@ a {
     transform: scale(1.2);
 }
 
+label {
+    color: white;
+    font-size: xx-large;
+}
 
 
+
+input, textarea, button {
+    background-color: darkslateblue;
+    font-family: Satisfy, serif;
+    color: white;
+    align-self: center;
+    padding: 5px;
+    font-family: Satisfy, serif;
+    font-size: xx-large;
+    font-weight: lighter;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    
+}
+
+
+.new-comic-form-input, .new-comic-form-textarea {
+    background-color: darkslateblue;
+    font-family: Satisfy, serif;
+    color: white;
+    align-self: center;
+    padding: 5px;
+    font-family: Satisfy, serif;
+    font-size: x-large;
+    font-weight: lighter;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+}
+.new-comic-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
 .book-page {
     display: flex;
     justify-content: space-between;
@@ -197,6 +251,16 @@ a {
 .synopsis {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding: 1rem;
+}
+
+.comic-bar {
+    display: flex;
+    flex-direction: row;
+    gap:70px;
+    justify-content: space-between;
     align-items: center;
     margin: auto;
     padding: 1rem;

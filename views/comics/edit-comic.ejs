@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../includes/head', {title: title}) %>
+
+<body>
+    <%- include('../includes/header', {heading: heading}) %>
+    <div id="main-div">
+        <main class="main">
+            
+            <form class="new-comic-form" action="/comics/<%= comic.slug %>" method="POST">
+                <h1>New Comic</h1>
+                <p>
+                    <label class="new-comic-form-label">Book Title*:</label>
+                    <input class="new-comic-form-input" value= "<%= comic.bookTitle %>" type="text" name="bookTitle" id="bookTitle" required />
+                </p>
+            </br>
+            <p>
+                <label class="new-comic-form-label">Page Slug*:</label>
+                <input class="new-comic-form-input" value= "<%= comic.slug %>" type="text" name="slug" id="slug" required />
+            </p>
+        </br>
+                <p>
+                    <label class="new-comic-form-label">Book Book Image URL*:</label>
+                    <input class="new-comic-form-input" value= "<%= comic.bookImg %>" type="text" name="bookImg" id="bookImg" required />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Number of Chapters*:</label>
+                    <input class="new-comic-form-input" value= "<%= comic.chapters %>" type="number" name="chapters" id="chapters" required min="0" step="1" />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Book Status*:</label>
+                    <input class="new-comic-form-input" value= "<%= comic.status %>" type="text" name="status" id="status" required />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Book Type*:</label>
+                    <input class="new-comic-form-input" value= "<%= comic.type %>" type="text" name="type" id="type" required />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Book Description*:</label>
+                    <input class="new-comic-form-input" value = "<%= comic.bookDescription %>" type="text" name="bookDescription" id="bookDescription" required />
+                    <!-- <textarea class="new-comic-form-textarea" value= "<%= comic.bookDescription %>" name="bookDescription" id="bookDescription" required></textarea> -->
+                </p>
+            </br>
+                <p>
+                    <button class="new-comic-form-button">Save Changes</button>
+                </p>
+            </form>
+        </main>
+    </div>
+
+    <%- include('../includes/sidebar') %>
+    <script src="/script.js"></script>
+</body>
+
+</html>

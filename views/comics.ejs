@@ -10,12 +10,17 @@
             <div class="main-table">
                 <% for(var i=0; i < data.length; i++) { %>
                     <div class="books">
-                        <% console.log(data[i].slug) %>
+                        <!-- <% console.log(data[i].slug) %> -->
                         <a href="/comics/<%= data[i].slug %>"><img class="book-cover"
                             src="<%= data[i].bookImg %>"
                             width=194px height=261px></a>
                     </div>
                 <% } %>
+                <div class="books">
+                    <a href="/comics/new-comic"><img class="book-cover"
+                        src="../plus.svg"
+                        width=194px height=261px></a>
+                </div>
             </div>
         </main>
     </div>

@@ -4,37 +4,75 @@
 <%- include('../includes/head', {title: title}) %>
 
 <body>
-    <%- include('../includes/header', {heading: title}) %>
+    <%- include('../includes/header', {heading: heading}) %>
     <div id="main-div">
-        <main>
+        <main class="main">
+            
+            <form class="new-comic-form" action="/comics/new-comic" method="POST">
+                <h1>New Comic</h1>
+                <p>
+                    <label class="new-comic-form-label">Book Title*:</label>
+                    <input class="new-comic-form-input" type="text" name="bookTitle" id="bookTitle" required />
+                </p>
+            </br>
+            <p>
+                <label class="new-comic-form-label">Page Slug*:</label>
+                <input class="new-comic-form-input" type="text" name="slug" id="slug" required />
+            </p>
+        </br>
+                <p>
+                    <label class="new-comic-form-label">Book Book Image URL*:</label>
+                    <input class="new-comic-form-input" type="text" name="bookImg" id="bookImg" required />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Number of Chapters*:</label>
+                    <input class="new-comic-form-input" type="number" name="chapters" id="chapters" required min="0" step="1" />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Book Status*:</label>
+                    <input class="new-comic-form-input" type="text" name="status" id="status" required />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Book Type*:</label>
+                    <input class="new-comic-form-input" type="text" name="type" id="type" required />
+                </p>
+            </br>
+                <p>
+                    <label class="new-comic-form-label">Book Description*:</label>
+                    <input class="new-comic-form-input" type="text" name="bookDescription" id="bookDescription" required />
+                    <!-- <textarea class="new-comic-form-textarea" name="bookDescription" id="bookDescription" required></textarea> -->
+                </p>
+            </br>
+                <p>
+                    <button class="new-comic-form-button">Add Comic</button>
+                </p>
+            </form>
+            <!-- <form action="/new-comic" method="POST">
             <article class="book-page">
-                <section class="book-info">
+                <section class="book-info" width=194px height=261px>
                     <img class="book-img"
-                        src="<%= bookImg %>">
-                    <section class="rating">
-                        <img src="../star.svg" width="12%">
-                        <img src="../star.svg" width="12%">
-                        <img src="../star.svg" width="12%">
-                        <img src="../star.svg" width="12%">
-                        <img src="../star.svg" width="12%">
-                    </section>
+                        src="<%-  %>">
+                        <input type= 'text' name='bookImg' placeholder='URL of the Book Image' required />
                     <section class="status">
                         <p>Status</p>
-                        <p class="completed"><%= status %></p>
+                        <p class="completed"><input type= 'text' name='status' placeholder='Status of the Book' required /></p>
                     </section>
                     <section class="chapters">
                         <p>Chapters</p>
-                        <p class=""><%= chapters %></p>
+                        <p class=""><input type= 'text' name='chapters' placeholder='Number of Chapters' required /></p>
                     </section>
                     <section class="type">
                         <p>Type</p>
-                        <p class=""><%= type %></p>
+                        <p class=""><input type= 'text' name='type' placeholder='Type of Book' required /></p>
                     </section>
                 </section>
     
                 <section class="synopsis">
-                    <h1><%= title %></h1>
-                    <p><%= description %></p>
+                    <h1><input type= 'text' name='title' placeholder='Book Title' required /></h1>
+                    <p><input type= 'text' name='bookDescription' placeholder='Short description of the book' required /></p>
                 </section>
                 <section class="personal-review">
                     <form action="/personal-reviews" method="post">
@@ -53,6 +91,7 @@
                     </form>
                 </section>
             </article>
+        </form> -->
         </main>
     </div>
 
