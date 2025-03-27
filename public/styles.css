@@ -32,7 +32,7 @@ h1 {
     transition: 0.5s;
 }
 
-.comic-template-main-div {
+/* .comic-template-main-div {
     background-color: darkslateblue;
     font-family: Satisfy, serif;
     color: white;
@@ -44,7 +44,7 @@ h1 {
     border: 2px solid white;
     border-radius: 5px;
     color: white;
-}
+} */
 .sidebar {
     height: 100%;
     width: 0;
