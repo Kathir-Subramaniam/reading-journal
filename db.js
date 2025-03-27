@@ -5,8 +5,8 @@ import { error } from "console";
 
 config()
 const DB_PASSWORD = process.env.DB_PASSWORD
-
-const uri = "mongodb+srv://kathirarunjunai:"+DB_PASSWORD+"@gary.j6f22.mongodb.net/Logbook"
+const DB_USERNAME = process.env.DB_USERNAME
+const uri = "mongodb+srv://"+DB_USERNAME+":"+DB_PASSWORD+"@gary.j6f22.mongodb.net/Logbook"
 
 export const connectDB = async() => {
     try {
