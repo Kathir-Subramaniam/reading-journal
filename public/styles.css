@@ -83,7 +83,7 @@ h1 {
 .nav-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     padding: 1rem;
     font-size: x-large; 
@@ -252,7 +252,7 @@ input, textarea, button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto;
+    /* margin: auto; */
     padding: 1rem;
 }
 
@@ -286,33 +286,50 @@ input, textarea, button {
     }
     .books {
         margin: auto;
+        width: auto;
+        height: 95%;
     }
     .book-page {
         flex-direction: column;
+        margin: 0;
     }
     .sidebar {
-        padding-top: 15px;
+        padding-top: 35px;
     }
     .sidebar a {
         font-size: large;
+        padding: 1rem;
     }
-
+    .error-image{
+        width: 300px;
+    }
+    .error-body{
+        font-size: medium;
+    }
+    .synopsis{
+        font-size: large;
+        padding: 0;
+    }
+    .comic-bar{
+        gap: 10px;
+    }
+    .personal-review{
+        margin: 1rem;
+    }
 }
 
 @media (min-width: 672px) {
-    body {
-        .main-table {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .books {
-            margin: auto;
-        }
-        .book-page {
-            flex-direction: column;
-        }   
-        .category-heading {
-            font-size: larger;
-        }
+    .main-table {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .books {
+        margin: auto;
+    }
+    .book-page {
+        flex-direction: column;
+    }   
+    .category-heading {
+        font-size: larger;
     }
 }
 
@@ -323,16 +340,14 @@ input, textarea, button {
 }
 
 @media (min-width: 1024px) {
-    body {
-        .main-table {
-            grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
-            
-        }
-        .book-page {
-            flex-direction: row;
-        }
-        .category-heading {
-            font-size: xx-large;
-        }
+    .main-table {
+        grid-template-columns: repeat(auto-fit, minmax(194px, 1fr));
+        
+    }
+    .book-page {
+        flex-direction: row;
+    }
+    .category-heading {
+        font-size: xx-large;
     }
 }
