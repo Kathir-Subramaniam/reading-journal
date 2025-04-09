@@ -24,8 +24,8 @@ app.use(express.static('public'))
 
 app.get('/home', async (request, response) => {
     const user = await User.find({}).exec()
-    console.log(user)
-    response.render('index', {data:user, title: "KD's Logbook" })
+    console.log(user[0].categories)
+    response.render('index', {data:user[0].categories, title: "KD's Logbook" })
 })
 
 app.get('/comics/:id/edit', async (request, response) => {
@@ -113,8 +113,8 @@ app.post('/comics/:id/edit', async (request, response) => {
 app.get('/comics', async (request, response) => {
 
     const comic = await User.find({}).exec()
-    console.log(comic)
-    response.render('comics', { data: comic, title: "KD's Reading Journal" })
+    console.log(comic[0].categories[0].categoryPage)
+    response.render('comics', { data: comic[0].categories[0].categoryPage, title: "KD's Reading Journal" })
 
 })
 

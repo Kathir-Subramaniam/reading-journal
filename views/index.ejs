@@ -43,13 +43,13 @@
                     <h1 class="category-heading">Countries</h1>
                 </a>
             </div> -->
-                        <% for(var i=0; i < data[0].categories.length; i++) { %>
+                        <% for(var i=0; i < data.length; i++) { %>
                             <div class="categories">
-                                <!-- <% console.log(data[0].categories[i].categorySlug) %> -->
-                                <a href="/<%= data[0].categories[i].categorySlug %>"><img class="category-cover"
-                                        src="<%=  data[0].categories[i].categoryImg %>" width=90% height=80%>
+                                <!-- <% console.log(data[i].categorySlug) %> -->
+                                <a href="/<%= data[i].categorySlug %>"><img class="category-cover"
+                                        src="<%=  data[i].categoryImg %>" width=90% height=80%>
                                     <br>
-                                    <h1 class="category-heading"><%= data[0].categories[i].categoryTitle %></h1>
+                                    <h1 class="category-heading"><%= data[i].categoryTitle %></h1>
                                 </a>
                             </div>
                             <% } %>
