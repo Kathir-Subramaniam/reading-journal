@@ -104,10 +104,7 @@ a {
     margin: 2rem;
 }
 
-.comics,
-.movies,
-.restaurants,
-.countries {
+.categories {
 
     align-items: center;
     padding: 1rem;
@@ -122,10 +119,7 @@ a {
     transition: 0.3s ease;
 }
 
-.comics:hover,
-.movies:hover,
-.restaurants:hover,
-.countries:hover {
+.categories:hover {
     transform: scale(1.2);
 }
 .category-cover {

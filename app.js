@@ -22,22 +22,23 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
-app.get('/home', (request, response) => {
-    //console.log(data.home.pageTitle)
-    response.render('index', { title: "KD's Logbook" })
+app.get('/home', async (request, response) => {
+    const user = await User.find({}).exec()
+    console.log(user)
+    response.render('index', {data:user, title: "KD's Logbook" })
 })
 
 app.get('/comics/:id/edit', async (request, response) => {
     const comicsId = request.params.id
     console.log(comicsId)
-    const comic = await Comic.findOne({ slug: comicsId })
+    const comic = await User.findOne({ slug: comicsId })
     response.render('comics/edit-comic', { comic: comic, title: comic.title, heading: "KD's Reading Journal" })
 })
 
 app.get('/comics/:id/delete', async (request, response) => {
     try {
         const comicsId = request.params.id
-        await Comic.findOneAndDelete({ slug: comicsId })
+        await User.findOneAndDelete({ slug: comicsId })
         response.redirect(`/comics`)
     } catch (error) {
         console.error(error)
@@ -46,7 +47,7 @@ app.get('/comics/:id/delete', async (request, response) => {
 })
 
 app.get('/comics/new-comic', (request, response) => {
-    response.render('comics/new-comic', { heading: "KD's Reading Journal", title: "New Comic" })
+    response.render('comics/new-comic', { heading: "KD's Reading Journal", title: "New User" })
 })
 
 app.get('/comics/:id', async (request, response) => {
@@ -55,7 +56,7 @@ app.get('/comics/:id', async (request, response) => {
     // console.log(data.comic);
     // console.log(data.comic[comicsId].bookTitle);
     //const comic = data.comic.data.find((comic) => comic.slug === comicsId)
-    const comic = await Comic.findOne({ slug: comicsId })
+    const comic = await User.findOne({ slug: comicsId })
     // console.log(comic.slug)
 
 
@@ -111,7 +112,7 @@ app.post('/comics/:id/edit', async (request, response) => {
 
 app.get('/comics', async (request, response) => {
 
-    const comic = await Comic.find({}).exec()
+    const comic = await User.find({}).exec()
     console.log(comic)
     response.render('comics', { data: comic, title: "KD's Reading Journal" })
 

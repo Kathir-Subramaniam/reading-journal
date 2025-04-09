@@ -39,7 +39,7 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
-    categoryImage: {
+    categoryImg: {
         type: String,
         required: true
     },categorySlug: {

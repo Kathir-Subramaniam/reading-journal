@@ -3,12 +3,12 @@
 
 <%- include('includes/head', {title: title}) %>
 
-<body>
-    <div id="main-div">
-        <%- include('./includes/header', {heading: title}) %>
-    <main>
-        <div class="categoriesTable">
-            <div class="comics">
+    <body>
+        <div id="main-div">
+            <%- include('./includes/header', {heading: title}) %>
+                <main>
+                    <div class="categoriesTable">
+                        <!-- <div class="comics">
                 <a href="/comics">
                     <img class="category-cover"
                         src="https://img.freepik.com/free-vector/comic-style-wallpaper_79603-1248.jpg" width=90%
@@ -42,26 +42,27 @@
                     <br>
                     <h1 class="category-heading">Countries</h1>
                 </a>
-            </div>
-            <% for(var i=0; i < data.length; i++) { %>
-                <div class="categories">
-                    <!-- <% console.log(data[i].categorySlug) %> -->
-                    <a href="/<%= data[i].categorySlug %>"><img class="category-cover"
-                        src="<%= data[i].categoryImg %>"
-                        width=90% height=80%></a>
-                </div>
-            <% } %>
-            <div class="categories">
-                <a href="/home/new-category"><img class="category-cover"
-                    src="../plus.svg"
-                    width=90% height=80%></a>
-            </div>
+            </div> -->
+                        <% for(var i=0; i < data[0].categories.length; i++) { %>
+                            <div class="categories">
+                                <!-- <% console.log(data[0].categories[i].categorySlug) %> -->
+                                <a href="/<%= data[0].categories[i].categorySlug %>"><img class="category-cover"
+                                        src="<%=  data[0].categories[i].categoryImg %>" width=90% height=80%>
+                                    <br>
+                                    <h1 class="category-heading"><%= data[0].categories[i].categoryTitle %></h1>
+                                </a>
+                            </div>
+                            <% } %>
+                                <div class="categories">
+                                    <a href="/home/new-category"><img class="category-cover" src="../plus.svg" width=90%
+                                            height=80%></a>
+                                </div>
+                    </div>
+                </main>
         </div>
-    </main>
-    </div>
-    
-    <%- include('./includes/sidebar') %>
-    <script src="../script.js"></script>
-</body>
+
+        <%- include('./includes/sidebar') %>
+            <script src="../script.js"></script>
+    </body>
 
 </html>
