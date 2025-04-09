@@ -6,6 +6,7 @@ import * as path from 'path'
 import { fileURLToPath } from 'url'
 import { connectDB } from './db.js'
 import { Comic } from './model/comics.js'
+import { User } from './model/users.js';
 
 import { title } from 'process';
 import { error } from 'console';
@@ -40,7 +41,7 @@ app.get('/comics/:id/delete', async (request, response) => {
         response.redirect(`/comics`)
     } catch (error) {
         console.error(error)
-        response.send('Error: The cookie could not be deleted.')
+        response.send('Error: The comic could not be deleted.')
     }
 })
 
@@ -96,7 +97,7 @@ app.post('/comics/new-comic', (request, response) => {
         .catch((error) => response.send('Error: The Comic could not be created' + error))
 })
 
-app.post('/comics/:id', async (request, response) => {
+app.post('/comics/:id/edit', async (request, response) => {
     try {
         const comicsId = request.params.id
         const comic = await Comic.findOneAndUpdate({ slug: comicsId }, request.body, { new: true })
@@ -104,7 +105,7 @@ app.post('/comics/:id', async (request, response) => {
         response.redirect(`/comics/${comic.slug}`)
     } catch (error) {
         console.error(error)
-        response.send('Error: The cookie could not be created.')
+        response.send('Error: The Comic could not be created.')
     }
 })
 

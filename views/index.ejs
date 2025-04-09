@@ -7,7 +7,7 @@
     <div id="main-div">
         <%- include('./includes/header', {heading: title}) %>
     <main>
-        <div class="categories">
+        <div class="categoriesTable">
             <div class="comics">
                 <a href="/comics">
                     <img class="category-cover"
@@ -42,6 +42,19 @@
                     <br>
                     <h1 class="category-heading">Countries</h1>
                 </a>
+            </div>
+            <% for(var i=0; i < data.length; i++) { %>
+                <div class="categories">
+                    <!-- <% console.log(data[i].categorySlug) %> -->
+                    <a href="/<%= data[i].categorySlug %>"><img class="category-cover"
+                        src="<%= data[i].categoryImg %>"
+                        width=90% height=80%></a>
+                </div>
+            <% } %>
+            <div class="categories">
+                <a href="/home/new-category"><img class="category-cover"
+                    src="../plus.svg"
+                    width=90% height=80%></a>
             </div>
         </div>
     </main>

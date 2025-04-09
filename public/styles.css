@@ -95,7 +95,7 @@ a {
     color: white;
 }
 
-.categories {
+.categoriesTable {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
