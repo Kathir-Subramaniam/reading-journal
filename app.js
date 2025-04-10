@@ -50,31 +50,30 @@ app.get('/comics/new-comic', (request, response) => {
     response.render('comics/new-comic', { heading: "KD's Reading Journal", title: "New User" })
 })
 
-app.get('/comics/:id', async (request, response) => {
+app.get('/categories/:categoryId/:id', async (request, response) => {
+    const categoryId = request.params.categoryId
     const comicsId = request.params.id
+    console.log(categoryId)
     console.log(comicsId)
-    // console.log(data.comic);
-    // console.log(data.comic[comicsId].bookTitle);
-    //const comic = data.comic.data.find((comic) => comic.slug === comicsId)
-    const comic = await User.findOne({ slug: comicsId })
-    // console.log(comic.slug)
+    const user = await User.findOne({ 'categories.categoryPage.slug': comicsId }).exec()
+    console.log("This is the right one" + user.categories[0].categoryPage.bookImg)
 
 
 
-    if (!comic) {
+    if (!user) {
         return response.render('404', { error: "I Haven't Read This Comic Yet..." })
     }
 
     else {
         response.render('comics/comic-template', {
             heading: "KD's Reading Journal",
-            title: comic.bookTitle,
-            bookImg: comic.bookImg,
-            description: comic.bookDescription,
-            chapters: comic.chapters,
-            status: comic.status,
-            type: comic.type,
-            slug: comic.slug
+            title: user.categories[0].categoryPage.bookTitle,
+            bookImg: user.categories[0].categoryPage.bookImg,
+            description: user.categories[0].categoryPage.bookDescription,
+            chapters: user.categories[0].categoryPage.chapters,
+            status: user.categories[0].categoryPage.status,
+            type: user.categories[0].categoryPage.type,
+            slug: user.categories[0].categoryPage.slug
         })
     }
 
@@ -98,23 +97,36 @@ app.post('/comics/new-comic', (request, response) => {
         .catch((error) => response.send('Error: The Comic could not be created' + error))
 })
 
-app.post('/comics/:id/edit', async (request, response) => {
+app.post('/categories/:categoryId/:id/edit', async (request, response) => {
     try {
+        const categoryId = request.params.categoryId
         const comicsId = request.params.id
         const comic = await Comic.findOneAndUpdate({ slug: comicsId }, request.body, { new: true })
         console.log(comic)
-        response.redirect(`/comics/${comic.slug}`)
+        response.redirect(`/${categoryId}/${comic.slug}`)
     } catch (error) {
         console.error(error)
         response.send('Error: The Comic could not be created.')
     }
 })
 
-app.get('/comics', async (request, response) => {
+app.get('/categories/:categoryId', async (request, response) => {
+    
+    const categoryId = request.params.categoryId
+    console.log(categoryId)
 
-    const comic = await User.find({}).exec()
-    console.log(comic[0].categories[0].categoryPage)
-    response.render('comics', { data: comic[0].categories[0].categoryPage, title: "KD's Reading Journal" })
+    const user = await User.findOne({'categories.categorySlug': categoryId}).exec()
+    let categoryIndex
+    for (var i = 0; i < user.categories.length; i++) {
+        // console.log(user.categories[i].categorySlug)
+        if (user.categories[i].categorySlug == categoryId){
+            categoryIndex = i
+        }
+    }
+    const correctCategory = user.categories[categoryIndex]
+    console.log(correctCategory)
+    console.log(correctCategory.categoryPage)
+    response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: "KD's Reading Journal" })
 
 })
 

@@ -46,7 +46,7 @@
                         <% for(var i=0; i < data.length; i++) { %>
                             <div class="categories">
                                 <!-- <% console.log(data[i].categorySlug) %> -->
-                                <a href="/<%= data[i].categorySlug %>"><img class="category-cover"
+                                <a href="/categories/<%= data[i].categorySlug %>"><img class="category-cover"
                                         src="<%=  data[i].categoryImg %>" width=90% height=80%>
                                     <br>
                                     <h1 class="category-heading"><%= data[i].categoryTitle %></h1>
@@ -54,7 +54,7 @@
                             </div>
                             <% } %>
                                 <div class="categories">
-                                    <a href="/home/new-category"><img class="category-cover" src="../plus.svg" width=90%
+                                    <a href="/categories/new-category"><img class="category-cover" src="../plus.svg" width=90%
                                             height=80%></a>
                                 </div>
                     </div>
