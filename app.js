@@ -25,7 +25,7 @@ app.use(express.static('public'))
 app.get('/home', async (request, response) => {
     const user = await User.find({}).exec()
     console.log(user[0].categories)
-    response.render('index', {data:user[0].categories, title: "KD's Logbook" })
+    response.render('index', { data: user[0].categories, title: "KD's Logbook" })
 })
 
 app.get('/comics/:id/edit', async (request, response) => {
@@ -52,28 +52,40 @@ app.get('/comics/new-comic', (request, response) => {
 
 app.get('/categories/:categoryId/:id', async (request, response) => {
     const categoryId = request.params.categoryId
-    const comicsId = request.params.id
-    console.log(categoryId)
-    console.log(comicsId)
-    const user = await User.findOne({ 'categories.categoryPage.slug': comicsId }).exec()
-    console.log("This is the right one" + user.categories[0].categoryPage.bookImg)
-
-
+    const itemId = request.params.id
+    const user = await User.findOne({ 'categories.categoryPage.slug': itemId }).exec()
 
     if (!user) {
         return response.render('404', { error: "I Haven't Read This Comic Yet..." })
     }
 
     else {
+
+        let categoryIndex
+        for (var i = 0; i < user.categories.length; i++) {
+            if (user.categories[i].categorySlug == categoryId) {
+                categoryIndex = i
+            }
+        }
+        const correctCategory = user.categories[categoryIndex]
+
+        let itemIndex
+        for (var i = 0; i < correctCategory.categoryPage.length; i++) {
+            if (correctCategory.categoryPage[i].slug == itemId) {
+                itemIndex = i
+            }
+        }
+        const correctItem = correctCategory.categoryPage[itemIndex]
+
         response.render('comics/comic-template', {
             heading: "KD's Reading Journal",
-            title: user.categories[0].categoryPage.bookTitle,
-            bookImg: user.categories[0].categoryPage.bookImg,
-            description: user.categories[0].categoryPage.bookDescription,
-            chapters: user.categories[0].categoryPage.chapters,
-            status: user.categories[0].categoryPage.status,
-            type: user.categories[0].categoryPage.type,
-            slug: user.categories[0].categoryPage.slug
+            title: correctItem.bookTitle,
+            bookImg: correctItem.bookImg,
+            description: correctItem.bookDescription,
+            chapters: correctItem.chapters,
+            status: correctItem.status,
+            type: correctItem.type,
+            slug: correctItem.slug
         })
     }
 
@@ -111,15 +123,15 @@ app.post('/categories/:categoryId/:id/edit', async (request, response) => {
 })
 
 app.get('/categories/:categoryId', async (request, response) => {
-    
+
     const categoryId = request.params.categoryId
     console.log(categoryId)
 
-    const user = await User.findOne({'categories.categorySlug': categoryId}).exec()
+    const user = await User.findOne({ 'categories.categorySlug': categoryId }).exec()
     let categoryIndex
     for (var i = 0; i < user.categories.length; i++) {
         // console.log(user.categories[i].categorySlug)
-        if (user.categories[i].categorySlug == categoryId){
+        if (user.categories[i].categorySlug == categoryId) {
             categoryIndex = i
         }
     }
