@@ -8,7 +8,7 @@
     <div id="main-div">
         <main class="main">
             
-            <form class="new-comic-form" action="/comics/new-comic" method="POST">
+            <form class="new-comic-form" action="/categories/<%= categorySlug %>/new-comic" method="POST">
                 <h1>New Comic</h1>
                 <p>
                     <label class="new-comic-form-label">Book Title*:</label>
@@ -96,7 +96,7 @@
     </div>
 
     <%- include('../includes/sidebar') %>
-    <script src="../script.js"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>

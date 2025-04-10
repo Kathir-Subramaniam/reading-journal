@@ -52,7 +52,7 @@ const categorySchema = new Schema({
 })
 
 const userSchema = new Schema({
-    userId: {
+    userName: {
         type: String, 
         required: true
     },
