@@ -47,6 +47,37 @@ app.get('/categories/:categoryId/edit', async (request, response) => {
     response.render('edit-category', { categorySlug: correctCategory.categorySlug, comic: correctCategory, title: correctCategory.title, heading: "KD's Logbook" })
 })
 
+app.get('/categories/:categoryId/delete', async (request, response) => {
+    try {
+        const categoryId = request.params.categoryId
+
+        const user = await User.findOne({ 'userName': "Asterix" }).exec()
+        
+        let categoryIndex
+        for (var i = 0; i < user.categories.length; i++) {
+            if (user.categories[i].categorySlug == categoryId) {
+                categoryIndex = i
+            }
+        }
+        const correctCategory = user.categories[categoryIndex]
+
+        console.log("correct")
+        await User.updateOne({'categories.categorySlug': categoryId}, 
+            {
+                $pull: {
+                    'categories': {
+                        categorySlug: categoryId
+                    }
+                }
+            }
+        )
+        response.redirect(`/home`)
+    } catch (error) {
+        console.error(error)
+        response.send('Error: The category could not be deleted.')
+    }
+})
+
 app.get('/categories/:categoryId/:id/edit', async (request, response) => {
     const categoryId = request.params.categoryId
     const itemId = request.params.id
