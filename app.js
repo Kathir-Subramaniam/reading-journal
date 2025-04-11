@@ -67,7 +67,7 @@ app.get('/comics/:id/delete', async (request, response) => {
 
 app.get('/categories/:categoryId/new-item', (request, response) => {
     const categoryId = request.params.categoryId
-    response.render('comics/new-comic', {categorySlug:categoryId, heading: "KD's Reading Journal", title: "New User" })
+    response.render('comics/new-comic', { categorySlug: categoryId, heading: "KD's Reading Journal", title: "New Item" })
 })
 
 app.get('/categories/:categoryId/:id', async (request, response) => {
@@ -119,24 +119,24 @@ app.post('/categories/:categoryId/new-comic', async (request, response) => {
     const user = await User.findOne({ 'categories.categorySlug': categoryId }).exec()
 
     let categoryIndex
-        for (var i = 0; i < user.categories.length; i++) {
-            if (user.categories[i].categorySlug == categoryId) {
-                categoryIndex = i
-            }
+    for (var i = 0; i < user.categories.length; i++) {
+        if (user.categories[i].categorySlug == categoryId) {
+            categoryIndex = i
         }
-        const correctCategory = user.categories[categoryIndex]
+    }
+    const correctCategory = user.categories[categoryIndex]
 
-        correctCategory.categoryPage.push({
-            bookImg: request.body.bookImg,
-            bookTitle: request.body.bookTitle,
-            bookDescription: request.body.bookDescription,
-            status: request.body.status,
-            chapters: request.body.chapters,
-            type: request.body.type,
-            slug: request.body.slug
-        })
-        console.log(correctCategory)
-    const userUpdate = await User.findOneAndUpdate({ 'categories.categorySlug': categoryId }, {$set:{correctCategory}} )
+    correctCategory.categoryPage.push({
+        bookImg: request.body.bookImg,
+        bookTitle: request.body.bookTitle,
+        bookDescription: request.body.bookDescription,
+        status: request.body.status,
+        chapters: request.body.chapters,
+        type: request.body.type,
+        slug: request.body.slug
+    })
+    console.log(correctCategory)
+    const userUpdate = await User.findOneAndUpdate({ 'categories.categorySlug': categoryId }, { $set: { correctCategory } })
 
     // console.log(request.body.bookDescription)
     // const user = new User({
@@ -156,11 +156,40 @@ app.post('/categories/:categoryId/new-comic', async (request, response) => {
 
 app.post('/categories/:categoryId/:id/edit', async (request, response) => {
     try {
+
         const categoryId = request.params.categoryId
-        const comicsId = request.params.id
-        const comic = await Comic.findOneAndUpdate({ slug: comicsId }, request.body, { new: true })
-        console.log(comic)
-        response.redirect(`/categories/${categoryId}/${comic.slug}`)
+        const itemId = request.params.id
+
+        const user = await User.findOne({ 'categories.categoryPage.slug': itemId }).exec()
+
+        let categoryIndex
+        for (var i = 0; i < user.categories.length; i++) {
+            if (user.categories[i].categorySlug == categoryId) {
+                categoryIndex = i
+            }
+        }
+        const correctCategory = user.categories[categoryIndex]
+
+        let itemIndex
+        for (var i = 0; i < correctCategory.categoryPage.length; i++) {
+            if (correctCategory.categoryPage[i].slug == itemId) {
+                itemIndex = i
+            }
+        }
+        const correctItem = correctCategory.categoryPage[itemIndex]
+
+        correctItem.bookImg = request.body.bookImg,
+        correctItem.bookTitle = request.body.bookTitle,
+        correctItem.bookDescription = request.body.bookDescription,
+        correctItem.status = request.body.status,
+        correctItem.chapters = request.body.chapters,
+        correctItem.type = request.body.type,
+        correctItem.slug = request.body.slug
+        console.log(correctItem)
+        
+        const userUpdate = await User.findOneAndUpdate({'categories.categoryPage.slug': itemId}, {$set:{'categories.$[categoryIndex].categoryPage.$[itemIndex]': correctItem}}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId},{'itemIndex.slug': itemId}]})
+
+        response.redirect(`/categories/${categoryId}/${correctItem.slug}`)
     } catch (error) {
         console.error(error)
         response.send('Error: The Comic could not be created.')

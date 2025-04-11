@@ -9,9 +9,9 @@
         <main class="main">
             
             <form class="new-comic-form" action="/categories/<%= categorySlug %>/new-comic" method="POST">
-                <h1>New Comic</h1>
+                <h1><%= title %></h1>
                 <p>
-                    <label class="new-comic-form-label">Book Title*:</label>
+                    <label class="new-comic-form-label">Title*:</label>
                     <input class="new-comic-form-input" type="text" name="bookTitle" id="bookTitle" required />
                 </p>
             </br>
@@ -21,7 +21,7 @@
             </p>
         </br>
                 <p>
-                    <label class="new-comic-form-label">Book Book Image URL*:</label>
+                    <label class="new-comic-form-label">Item Image URL*:</label>
                     <input class="new-comic-form-input" type="text" name="bookImg" id="bookImg" required />
                 </p>
             </br>
@@ -31,23 +31,23 @@
                 </p>
             </br>
                 <p>
-                    <label class="new-comic-form-label">Book Status*:</label>
+                    <label class="new-comic-form-label">Status*:</label>
                     <input class="new-comic-form-input" type="text" name="status" id="status" required />
                 </p>
             </br>
                 <p>
-                    <label class="new-comic-form-label">Book Type*:</label>
+                    <label class="new-comic-form-label">Type*:</label>
                     <input class="new-comic-form-input" type="text" name="type" id="type" required />
                 </p>
             </br>
                 <p>
-                    <label class="new-comic-form-label">Book Description*:</label>
+                    <label class="new-comic-form-label">Description*:</label>
                     <input class="new-comic-form-input" type="text" name="bookDescription" id="bookDescription" required />
                     <!-- <textarea class="new-comic-form-textarea" name="bookDescription" id="bookDescription" required></textarea> -->
                 </p>
             </br>
                 <p>
-                    <button class="new-comic-form-button">Add Comic</button>
+                    <button class="new-comic-form-button">Add Item</button>
                 </p>
             </form>
             <!-- <form action="/new-comic" method="POST">
