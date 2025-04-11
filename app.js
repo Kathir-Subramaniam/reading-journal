@@ -54,11 +54,52 @@ app.get('/categories/:categoryId/:id/edit', async (request, response) => {
     response.render('comics/edit-comic', { categorySlug: correctCategory.categorySlug, comic: correctItem, title: correctItem.title, heading: "KD's Reading Journal" })
 })
 
-app.get('/comics/:id/delete', async (request, response) => {
+app.get('/categories/:categoryId/:id/delete', async (request, response) => {
     try {
-        const comicsId = request.params.id
-        await User.findOneAndDelete({ slug: comicsId })
-        response.redirect(`/comics`)
+        const categoryId = request.params.categoryId
+        const itemId = request.params.id
+
+        const user = await User.findOne({ 'categories.categoryPage.slug': itemId }).exec()
+        
+        let categoryIndex
+        for (var i = 0; i < user.categories.length; i++) {
+            if (user.categories[i].categorySlug == categoryId) {
+                categoryIndex = i
+            }
+        }
+        const correctCategory = user.categories[categoryIndex]
+
+        let itemIndex
+        for (var i = 0; i < correctCategory.categoryPage.length; i++) {
+            if (correctCategory.categoryPage[i].slug == itemId) {
+                itemIndex = i
+            }
+        }
+        const correctItem = correctCategory.categoryPage[itemIndex]
+
+        console.log("correct")
+        await User.updateOne({'categories.categoryPage.slug': itemId}, 
+            {
+                $pull: {
+                    // 'categories.$[categoryId]': {
+                    //     'categoryPage.$[itemId]': {
+                    //         $elemMatch: {slug: itemId}
+                    //     }
+                    // }
+                    'categories.$.categoryPage': {
+                        slug: itemId
+                    }
+                }
+            }
+            // {
+            //     arrayFilters: [{'categoryId': categoryId},{'itemId': itemIndex}]
+                
+            // }
+        )
+        // await User.findOneAndDelete({'categories.categoryPage.slug': itemId}, {'categories.$[categoryIndex].categoryPage.$[itemIndex]': correctItem}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId},{'itemIndex.slug': itemId}]})
+
+        // await User.findOneAndDelete({ slug: comicsId })
+        response.redirect(`/categories/${categoryId}`)
     } catch (error) {
         console.error(error)
         response.send('Error: The comic could not be deleted.')
@@ -210,8 +251,8 @@ app.get('/categories/:categoryId', async (request, response) => {
         }
     }
     const correctCategory = user.categories[categoryIndex]
-    console.log(correctCategory)
-    console.log(correctCategory.categoryPage)
+    // console.log(correctCategory)
+    // console.log(correctCategory.categoryPage)
     response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: "KD's Reading Journal" })
 
 })
