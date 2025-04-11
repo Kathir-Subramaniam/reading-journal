@@ -6,15 +6,11 @@ import * as path from 'path'
 import { fileURLToPath } from 'url'
 import mongoose from 'mongoose';
 import { connectDB } from './db.js'
-import { Comic } from './model/comics.js'
 import { User } from './model/users.js';
 
 import { title } from 'process';
 import { error } from 'console';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PORT = 4000
 const database = connectDB()
 
 app.use(express.json())
@@ -324,20 +320,16 @@ app.get('/categories/:categoryId', async (request, response) => {
     const user = await User.findOne({ 'categories.categorySlug': categoryId }).exec()
     let categoryIndex
     for (var i = 0; i < user.categories.length; i++) {
-        // console.log(user.categories[i].categorySlug)
         if (user.categories[i].categorySlug == categoryId) {
             categoryIndex = i
         }
     }
     const correctCategory = user.categories[categoryIndex]
-    // console.log(correctCategory)
-    // console.log(correctCategory.categoryPage)
     response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: correctCategory.categoryPageTitle, categoryTitle: correctCategory.categoryTitle, sidebarData: user.categories })
 
 })
 
 app.post('/personal-reviews', (request, response) => {
-    // console.log(request)
     const userName = data.user
     const userReview = data.review
     response.send(`Thank you for your review ${request.body.name}!<br/>List of past reviews -<br/> ${userName}: ${userReview}`)
@@ -355,6 +347,6 @@ app.all('*', (request, response) => {
     }
 })
 
-app.listen(PORT, () => {
-    console.log(`👋 Started server on port ${PORT}`)
+app.listen(process.env.PORT, () => {
+    console.log(`👋 Started server on port ${process.env.PORT}`)
 })
