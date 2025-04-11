@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('./includes/head', {title: title}) %>
+
+    <body>
+        <%- include('./includes/header', {heading: heading}) %>
+            <div id="main-div">
+                <main class="main">
+
+                    <form class="new-comic-form" action="/categories/new-category" method="POST">
+                        <h1>
+                            <%= title %>
+                        </h1>
+                        <p>
+                            <label class="new-comic-form-label">Category Title*:</label>
+                            <input class="new-comic-form-input" type="text" name="categoryTitle" id="categoryTitle" required />
+                        </p>
+                        </br>
+                        <p>
+                            <label class="new-comic-form-label">Page Slug*:</label>
+                            <input class="new-comic-form-input" type="text" name="categorySlug" id="categorySlug" required />
+                        </p>
+                        </br>
+                        <p>
+                            <label class="new-comic-form-label">Category Image URL*:</label>
+                            <input class="new-comic-form-input" type="text" name="categoryImg" id="categoryImg" required />
+                        </p>
+                        </br>
+                        <p>
+                            <label class="new-comic-form-label">Category Page Title*:</label>
+                            <input class="new-comic-form-input" type="text" name="categoryPageTitle" id="categoryPageTitle"
+                                required />
+                        </p>
+                        </br>
+                        <p>
+                            <button class="new-comic-form-button">Add Category</button>
+                        </p>
+                    </form>
+                </main>
+            </div>
+
+            <%- include('./includes/sidebar') %>
+                <script src="/script.js"></script>
+    </body>
+
+</html>
