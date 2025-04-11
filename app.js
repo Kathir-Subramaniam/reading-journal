@@ -22,13 +22,29 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 app.get('/home', async (request, response) => {
-    const user = await User.find({}).exec()
-    console.log(user[0].categories)
-    response.render('index', { data: user[0].categories, title: "KD's Logbook" })
+    const user = await User.findOne({'userName': "Asterix"}).exec()
+    console.log(user.categories)
+    response.render('index', { data: user.categories, title: "KD's Logbook" })
 })
 
 app.get('/categories/new-category', (request, response) => {
     response.render('new-category', { heading: "KD's Logbook", title: "New Category" })
+})
+
+app.get('/categories/:categoryId/edit', async (request, response) => {
+    const categoryId = request.params.categoryId
+    console.log(categoryId)
+    const user = await User.findOne({ 'userName': "Asterix" }).exec()
+    console.log(user)
+    let categoryIndex
+    for (var i = 0; i < user.categories.length; i++) {
+        if (user.categories[i].categorySlug == categoryId) {
+            categoryIndex = i
+        }
+    }
+    const correctCategory = user.categories[categoryIndex]
+
+    response.render('edit-category', { categorySlug: correctCategory.categorySlug, comic: correctCategory, title: correctCategory.title, heading: "KD's Logbook" })
 })
 
 app.get('/categories/:categoryId/:id/edit', async (request, response) => {
@@ -143,22 +159,6 @@ app.get('/categories/:categoryId/:id', async (request, response) => {
 
 })
 
-app.get('/categories/:categoryId/edit', async (request, response) => {
-    const categoryId = request.params.categoryId
-    console.log(categoryIdId)
-    const user = await User.findOne({ 'userName': "Kathir" }).exec()
-
-    let categoryIndex
-    for (var i = 0; i < user.categories.length; i++) {
-        if (user.categories[i].categorySlug == categoryId) {
-            categoryIndex = i
-        }
-    }
-    const correctCategory = user.categories[categoryIndex]
-
-    response.render('edit-category', { categorySlug: correctCategory.categorySlug, comic: correctCategory, title: correctCategory.title, heading: "KD's Logbook" })
-})
-
 app.post('/categories/new-category', async (request, response) => {
 
     const user = await User.findOne({ userName: "Asterix" }).exec()
@@ -202,7 +202,7 @@ app.post('/categories/:categoryId/edit', async (request, response) => {
         
         const userUpdate = await User.findOneAndUpdate({'userName': "Asterix"}, {$set:{'categories.$[categoryIndex]': correctCategory}}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId}]})
 
-        response.redirect(`/categories/${categoryId}/${correctCategory.slug}`)
+        response.redirect(`/categories/${correctCategory.categorySlug}`)
     } catch (error) {
         console.error(error)
         response.send('Error: The Comic could not be created.')
@@ -298,7 +298,7 @@ app.get('/categories/:categoryId', async (request, response) => {
     const correctCategory = user.categories[categoryIndex]
     // console.log(correctCategory)
     // console.log(correctCategory.categoryPage)
-    response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: "KD's Reading Journal" })
+    response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: correctCategory.categoryPageTitle, categoryTitle: correctCategory.categoryTitle })
 
 })
 

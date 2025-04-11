@@ -17,8 +17,13 @@
                     </div>
                 <% } %>
                 <div class="books">
-                    <a href="/categories/<%= categorySlug %>/new-item"><img class="book-cover"
+                    <a href="/categories/<%= categorySlug %>/new-item">Add Item<img class="book-cover"
                         src="/plus.svg"
+                        width=194px height=261px></a>
+                </div>
+                <div class="books">
+                    <a href="/categories/<%= categorySlug %>/edit">Edit <%= categoryTitle%><img class="book-cover"
+                        src="/edit.svg"
                         width=194px height=261px></a>
                 </div>
             </div>
