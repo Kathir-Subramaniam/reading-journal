@@ -24,11 +24,12 @@ app.use(express.static('public'))
 app.get('/home', async (request, response) => {
     const user = await User.findOne({'userName': "Asterix"}).exec()
     console.log(user.categories)
-    response.render('index', { data: user.categories, title: "KD's Logbook" })
+    response.render('index', { data: user.categories, title: "KD's Logbook", sidebarData: user.categories })
 })
 
-app.get('/categories/new-category', (request, response) => {
-    response.render('new-category', { heading: "KD's Logbook", title: "New Category" })
+app.get('/categories/new-category', async (request, response) => {
+    const user = await User.findOne({ 'userName': "Asterix" }).exec()
+    response.render('new-category', { heading: "KD's Logbook", title: "New Category", sidebarData: user.categories })
 })
 
 app.get('/categories/:categoryId/edit', async (request, response) => {
@@ -44,7 +45,7 @@ app.get('/categories/:categoryId/edit', async (request, response) => {
     }
     const correctCategory = user.categories[categoryIndex]
 
-    response.render('edit-category', { categorySlug: correctCategory.categorySlug, comic: correctCategory, title: correctCategory.title, heading: "KD's Logbook" })
+    response.render('edit-category', { categorySlug: correctCategory.categorySlug, comic: correctCategory, title: correctCategory.title, heading: "KD's Logbook", sidebarData: user.categories })
 })
 
 app.get('/categories/:categoryId/delete', async (request, response) => {
@@ -100,7 +101,7 @@ app.get('/categories/:categoryId/:id/edit', async (request, response) => {
     }
     const correctItem = correctCategory.categoryPage[itemIndex]
 
-    response.render('comics/edit-comic', { categorySlug: correctCategory.categorySlug, comic: correctItem, title: correctItem.title, heading: "KD's Reading Journal" })
+    response.render('comics/edit-comic', { categorySlug: correctCategory.categorySlug, comic: correctItem, title: correctItem.title, heading: "KD's Reading Journal", sidebarData: user.categories })
 })
 
 app.get('/categories/:categoryId/:id/delete', async (request, response) => {
@@ -143,9 +144,10 @@ app.get('/categories/:categoryId/:id/delete', async (request, response) => {
     }
 })
 
-app.get('/categories/:categoryId/new-item', (request, response) => {
+app.get('/categories/:categoryId/new-item', async (request, response) => {
     const categoryId = request.params.categoryId
-    response.render('comics/new-comic', { categorySlug: categoryId, heading: "KD's Reading Journal", title: "New Item" })
+    const user = await User.findOne({ 'userName': "Asterix" }).exec()
+    response.render('comics/new-comic', { categorySlug: categoryId, heading: "KD's Reading Journal", title: "New Item", sidebarData: user.categories })
 })
 
 app.get('/categories/:categoryId/:id', async (request, response) => {
@@ -184,7 +186,8 @@ app.get('/categories/:categoryId/:id', async (request, response) => {
             chapters: correctItem.chapters,
             status: correctItem.status,
             type: correctItem.type,
-            slug: correctItem.slug
+            slug: correctItem.slug,
+            sidebarData: user.categories
         })
     }
 
@@ -329,7 +332,7 @@ app.get('/categories/:categoryId', async (request, response) => {
     const correctCategory = user.categories[categoryIndex]
     // console.log(correctCategory)
     // console.log(correctCategory.categoryPage)
-    response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: correctCategory.categoryPageTitle, categoryTitle: correctCategory.categoryTitle })
+    response.render('comics', { categorySlug: correctCategory.categorySlug, data: correctCategory.categoryPage, title: correctCategory.categoryPageTitle, categoryTitle: correctCategory.categoryTitle, sidebarData: user.categories })
 
 })
 

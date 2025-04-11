@@ -2,5 +2,7 @@
 <div id="sidebar" class="sidebar">
     <img class="close-button" onclick="closeNav()" src="/close.svg">
     <a href="/home" class="">Home</a>
-    <a href="/categories/comics" class="">Comics</a>
+    <% for(var i=0; i < sidebarData.length; i++) { %>
+        <a href="/categories/<%= sidebarData[i].categorySlug %>" class=""><%= sidebarData[i].categoryTitle %></a>
+    <% } %>
 </div>
