@@ -152,7 +152,7 @@ app.get('/categories/:categoryId/:id', async (request, response) => {
     const user = await User.findOne({ 'categories.categoryPage.slug': itemId }).exec()
 
     if (!user) {
-        return response.render('404', { error: "I Haven't Read This Comic Yet..." })
+        return response.render('404', { error: "I Haven't Read This Comic Yet...", sidebarData: user.categories })
     }
 
     else {
@@ -335,9 +335,10 @@ app.post('/personal-reviews', (request, response) => {
     response.send(`Thank you for your review ${request.body.name}!<br/>List of past reviews -<br/> ${userName}: ${userReview}`)
 })
 
-app.all('*', (request, response) => {
+app.all('*', async (request, response) => {
+    const user = await User.findOne({ 'userName': "Asterix" }).exec()
     if (request.accepts('html')) {
-        response.render('404', { error: "This Page Is Not Found" })
+        response.render('404', { error: "This Page Is Not Found", sidebarData: user.categories })
     }
     else if (request.accepts('json')) {
         response.status(404).json({ error: "404 Not Found" })
