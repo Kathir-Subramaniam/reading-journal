@@ -17,6 +17,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
+app.get('/', async (request, response) => {
+    const user = await User.findOne({'userName': "Asterix"}).exec()
+    console.log(user.categories)
+    response.render('index', { data: user.categories, title: "KD's Logbook", sidebarData: user.categories })
+})
+
 app.get('/home', async (request, response) => {
     const user = await User.findOne({'userName': "Asterix"}).exec()
     console.log(user.categories)
