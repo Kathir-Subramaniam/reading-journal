@@ -1,16 +1,41 @@
 # Kathir's(KD) Logbook  
 
-The idea behind the website was to have a way for me to keep logs of everything I have done.  
-The primary use case is for me to keep tracks of comics that I have read.  
-It should prove very useful for keeping track of the amount of chapters I have read, what my thoughts on it were and other similar features.  
-It can grow in the future to other things I could keep a log of, like restaurants I liked or movies I enjoyed.  
+The idea behind the website was to have a way for me to keep logs of everything I would want to revisit in the future.  
+The primary use case is for me to keep tracks of comics that I have read, favourtie movies that I have watched and restaurants and countries I have visited. 
+However, if I ever feel the need to log anything else then it is also possible to create new categories.
+Each category is capable of creating items that store basic information I would want logged.
+It is also possible to edit and delete the items and categories. 
 
-## Hand-in 1 .v1 -  
+You can navigate to the deployed version of the website through this link - https://reading-journal-topa.onrender.com/home 
 
-- Created a home page  with different options for the different categories.  
-- Created the "Comics" page and made it show some of the comics I have read. Expandable as I read more comics.  
-- Created the "Solo Leveling" page and made it show the basic info about the comic. Will expand the page's features in the future.  
-- Made all three pages responsive for mobiles, tablets and laptops.  
+## How to install and run the project:  
 
-# ✅ Hand-in Requirements:
-Hand-in your project as git repository, including a README.md file. The repository should contain at least 3 HTML pages which are linked to each other. They must be styled using a variety of CSS rules (without framework). All pages should be responsive, using media queries and at least 2 breakpoints. 
+- Clone the git repo using the command `git clone https://github.com/Kathir-Subramaniam/reading-journal.git`.
+- Set up MongoDB.
+- Set up a `.env` file with `.env.example` as a reference. 
+- Open terminal on the root folder.
+- Run `npm install` to install dependencies.
+- Use `npm start` to start the server.
+- Server starts on `http://localhost:3000/` by default.  
+
+## How to use the project:
+
+- There are two parts that are dynamic, the categories and the items which belong to the categories.
+- Create categories first to be able to create items related to it.
+- You can edit and delete the categories once you go into them.
+- You can edit and delete the items once you go into the item.
+- Creating both categories and items require you to fill all the fields.
+- The image field requires you to input an URL to an image.
+
+## Work In Progress Features / Known Bugs:
+- Currently the website is only for 1 user but support for multiple users is in the work.
+- A review system is also in the works.
+
+## Technologies Used in this Project:
+- Express
+- NodeJS
+- MongoDB Atlas
+- Mongoose
+- Git
+- Render.com to deploy the website
+

@@ -1,5 +1,3 @@
-console.log("Hello World")
-
 function openNav() {
     document.getElementById("sidebar").style.width = "25%";
     document.getElementById("main-div").style.marginRight = "25%";
