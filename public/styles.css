@@ -99,7 +99,7 @@ a {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-    gap: 10px;
+    gap: 20px;
     height: 40%;
     margin: 2rem;
 }
@@ -328,7 +328,7 @@ input, textarea, button {
 }
 
 @media (max-width: 750px) {
-    .categories {
+    .categoriesTable{
         grid-template-columns: 1fr;
     }
 }
