@@ -335,10 +335,14 @@ app.get('/categories/:categoryId', async (request, response) => {
 
 })
 
+app.get('/wip', async (request, response) => {
+    const user = await User.findOne({ 'userName': "Asterix" }).exec()
+    response.render('wip', { sidebarData: user.categories })
+})
+
 app.post('/personal-reviews', (request, response) => {
-    const userName = data.user
-    const userReview = data.review
-    response.send(`Thank you for your review ${request.body.name}!<br/>List of past reviews -<br/> ${userName}: ${userReview}`)
+    // response.send(`Thank you for your review ${request.body.name}! This feature is still Work In Progress! Come Back Later!`)
+    response.redirect('wip')
 })
 
 app.all('*', async (request, response) => {
