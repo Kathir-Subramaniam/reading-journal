@@ -9,7 +9,6 @@
 
 body {
     min-height: 100dvh;
-    min-width: 100dvw;
     background-color: darkslateblue;
     font-family: Satisfy, serif;
     color: white;
@@ -32,19 +31,6 @@ h1 {
     transition: 0.5s;
 }
 
-/* .comic-template-main-div {
-    background-color: darkslateblue;
-    font-family: Satisfy, serif;
-    color: white;
-    align-self: center;
-    padding: 5px;
-    font-family: Satisfy, serif;
-    font-size: xx-large;
-    font-weight: lighter;
-    border: 2px solid white;
-    border-radius: 5px;
-    color: white;
-} */
 .sidebar {
     height: 100%;
     width: 0;
@@ -246,7 +232,6 @@ input, textarea, button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin: auto; */
     padding: 1rem;
 }
 
