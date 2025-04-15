@@ -27,7 +27,7 @@ You can navigate to the deployed version of the website through this link - http
 - Creating both categories and items require you to fill all the fields.
 - The image field requires you to input an URL to an image.
 
-## Work In Progress Features / Known Bugs:
+## Work In Progress Features:
 - Currently the website is only for 1 user but support for multiple users is in the work.
 - A review system is also in the works.
 
