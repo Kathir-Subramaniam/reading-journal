@@ -4,7 +4,7 @@ app.set('view engine', 'ejs')
 import { connectDB } from './db.js'
 import { User } from './model/users.js';
 
-const database = connectDB()
+// const database = connectDB()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -333,6 +333,10 @@ app.all('*', async (request, response) => {
     }
 })
 
-app.listen(process.env.PORT, () => {
-    console.log(`👋 Started server on port ${process.env.PORT}`)
-})
+// if (process.env.NODE_ENV !==  'test') {
+//     app.listen(process.env.PORT, () => {
+//         console.log(`👋 Started server on port ${process.env.PORT}`)
+//     })
+// }
+
+export default app

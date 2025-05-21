@@ -10,23 +10,23 @@
             <div class="main-table">
                 <% for(var i=0; i < data.length; i++) { %>
                     <div class="books">
-                        <a href="/categories/<%= categorySlug %>/<%= data[i].slug %>"><img class="book-cover"
+                        <a href="/categories/<%= categorySlug %>/<%= data[i].slug %>"><img alt= "<%= data[i].bookTitle %>" class="book-cover"
                             src="<%= data[i].bookImg %>"
                             width=194px height=261px></a>
                     </div>
                 <% } %>
                 <div class="books">
-                    <a href="/categories/<%= categorySlug %>/new-item">Add Item<img class="book-cover"
+                    <a href="/categories/<%= categorySlug %>/new-item">Add Item<img alt="Add Item" class="book-cover"
                         src="/plus.svg"
                         width=194px height=261px></a>
                 </div>
                 <div class="books">
-                    <a href="/categories/<%= categorySlug %>/edit">Edit the Category<img class="book-cover"
+                    <a href="/categories/<%= categorySlug %>/edit">Edit the Category<img alt="Edit Category" class="book-cover"
                         src="/edit.svg"
                         width=194px height=261px></a>
                 </div>
                 <div class="books">
-                    <a href="/categories/<%= categorySlug %>/delete">Delete the Category<img class="book-cover"
+                    <a href="/categories/<%= categorySlug %>/delete">Delete the Category<img alt="Delete Category" class="book-cover"
                         src="/delete.svg"
                         width=194px height=261px></a>
                 </div>

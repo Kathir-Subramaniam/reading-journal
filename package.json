@@ -5,9 +5,16 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "jest"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "dev:instrumented": "nyc --report-dir=coverage/playwright --reporter=lcov --reporter=text node server.js",
+    "test": "jest",
+    "test:unitandintegration": "jest --coverage --coverageDirectory=coverage/jest",
+    "test:e2e": "start-server-and-test dev:instrumented http://localhost:3000 \"npx playwright test tests/e2e/all.spec.js\"",
+    "coverage:merge": "istanbul-merge --out coverage/combined/coverage.json \"coverage/jest/*.json\" \"coverage/playwright/*.json\"",
+    "coverage:report": "nyc report --reporter=lcov --report-dir=coverage/combined --temp-dir=coverage/combined",
+    "coverage:view": "npx serve coverage/combined",
+    "coverage:full": "npm run test:unitandintegration && npm run test:e2e && npm run coverage:merge && npm run coverage:report && npm run coverage:view"
   },
   "repository": {
     "type": "git",
@@ -30,10 +37,16 @@
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
+    "@playwright/test": "^1.52.0",
     "babel-jest": "^29.7.0",
+    "istanbul": "^0.4.5",
+    "istanbul-merge": "^2.0.0",
     "jest": "^29.7.0",
     "mongodb-memory-server": "^10.1.4",
     "mongoose": "^8.13.2",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "nyc": "^17.1.0",
+    "start-server-and-test": "^2.0.12",
+    "supertest": "^7.1.1"
   }
 }

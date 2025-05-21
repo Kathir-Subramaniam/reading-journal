@@ -11,7 +11,7 @@
 
                         <% for(var i=0; i < data.length; i++) { %>
                             <div class="categories">
-                                <a href="/categories/<%= data[i].categorySlug %>"><img class="category-cover"
+                                <a href="/categories/<%= data[i].categorySlug %>"><img alt="<%= data[i].categoryTitle %>" class="category-cover"
                                         src="<%=  data[i].categoryImg %>" width=90% height=80%>
                                     <br>
                                     <h1 class="category-heading">
