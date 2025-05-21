@@ -1,7 +1,6 @@
-import express, { response } from 'express'
+import express from 'express'
 const app = express()
 app.set('view engine', 'ejs')
-import { connectDB } from './db.js'
 import { User } from './model/users.js';
 
 // const database = connectDB()
@@ -43,15 +42,16 @@ app.get('/categories/:categoryId/delete', async (request, response) => {
     try {
         const categoryId = request.params.categoryId
 
-        const user = await User.findOne({ 'userName': "Asterix" }).exec()
+        // const user = await User.findOne({ 'userName': "Asterix" }).exec()
         
-        let categoryIndex
-        for (var i = 0; i < user.categories.length; i++) {
-            if (user.categories[i].categorySlug == categoryId) {
-                categoryIndex = i
-            }
-        }
-        const correctCategory = user.categories[categoryIndex]
+        // let categoryIndex
+        // for (var i = 0; i < user.categories.length; i++) {
+        //     if (user.categories[i].categorySlug == categoryId) {
+        //         categoryIndex = i
+        //     }
+        // }
+
+        // const correctCategory = user.categories[categoryIndex]
         await User.updateOne({'categories.categorySlug': categoryId}, 
             {
                 $pull: {
@@ -82,9 +82,9 @@ app.get('/categories/:categoryId/:id/edit', async (request, response) => {
     const correctCategory = user.categories[categoryIndex]
 
     let itemIndex
-    for (var i = 0; i < correctCategory.categoryPage.length; i++) {
-        if (correctCategory.categoryPage[i].slug == itemId) {
-            itemIndex = i
+    for (var j = 0; j < correctCategory.categoryPage.length; j++) {
+        if (correctCategory.categoryPage[j].slug == itemId) {
+            itemIndex = j
         }
     }
     const correctItem = correctCategory.categoryPage[itemIndex]
@@ -97,23 +97,24 @@ app.get('/categories/:categoryId/:id/delete', async (request, response) => {
         const categoryId = request.params.categoryId
         const itemId = request.params.id
 
-        const user = await User.findOne({ 'categories.categoryPage.slug': itemId }).exec()
+        // const user = await User.findOne({ 'categories.categoryPage.slug': itemId }).exec()
         
-        let categoryIndex
-        for (var i = 0; i < user.categories.length; i++) {
-            if (user.categories[i].categorySlug == categoryId) {
-                categoryIndex = i
-            }
-        }
-        const correctCategory = user.categories[categoryIndex]
+        // let categoryIndex
+        // for (var i = 0; i < user.categories.length; i++) {
+        //     if (user.categories[i].categorySlug == categoryId) {
+        //         categoryIndex = i
+        //     }
+        // }
+        // const correctCategory = user.categories[categoryIndex]
 
-        let itemIndex
-        for (var i = 0; i < correctCategory.categoryPage.length; i++) {
-            if (correctCategory.categoryPage[i].slug == itemId) {
-                itemIndex = i
-            }
-        }
-        const correctItem = correctCategory.categoryPage[itemIndex]
+        // let itemIndex
+        // for (var j = 0; j < correctCategory.categoryPage.length; j++) {
+        //     if (correctCategory.categoryPage[j].slug == itemId) {
+        //         itemIndex = j
+        //     }
+        // }
+
+        // const correctItem = correctCategory.categoryPage[itemIndex]
         await User.updateOne({'categories.categoryPage.slug': itemId}, 
             {
                 $pull: {
@@ -156,9 +157,9 @@ app.get('/categories/:categoryId/:id', async (request, response) => {
         const correctCategory = user.categories[categoryIndex]
 
         let itemIndex
-        for (var i = 0; i < correctCategory.categoryPage.length; i++) {
-            if (correctCategory.categoryPage[i].slug == itemId) {
-                itemIndex = i
+        for (var j = 0; j < correctCategory.categoryPage.length; j++) {
+            if (correctCategory.categoryPage[j].slug == itemId) {
+                itemIndex = j
             }
         }
         const correctItem = correctCategory.categoryPage[itemIndex]
@@ -190,7 +191,7 @@ app.post('/categories/new-category', async (request, response) => {
         categoryPageTitle: request.body.categoryPageTitle,
         categoryPage: [] 
     })
-    const userUpdate = await User.findOneAndUpdate({ 'userName': "Asterix" }, { $set: { user } })
+    await User.findOneAndUpdate({ 'userName': "Asterix" }, { $set: { user } })
     user.save()
         .then(() => response.redirect(`/home`))
         .catch((error) => response.send('Error: The Category could not be created' + error))
@@ -216,7 +217,7 @@ app.post('/categories/:categoryId/edit', async (request, response) => {
         correctCategory.categorySlug = request.body.categorySlug
         correctCategory.categoryPageTitle = request.body.categoryPageTitle
         
-        const userUpdate = await User.findOneAndUpdate({'userName': "Asterix"}, {$set:{'categories.$[categoryIndex]': correctCategory}}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId}]})
+        await User.findOneAndUpdate({'userName': "Asterix"}, {$set:{'categories.$[categoryIndex]': correctCategory}}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId}]})
 
         response.redirect(`/categories/${correctCategory.categorySlug}`)
     } catch (error) {
@@ -248,7 +249,7 @@ app.post('/categories/:categoryId/new-comic', async (request, response) => {
         type: request.body.type,
         slug: request.body.slug
     })
-    const userUpdate = await User.findOneAndUpdate({ 'categories.categorySlug': categoryId }, { $set: { correctCategory } })
+    await User.findOneAndUpdate({ 'categories.categorySlug': categoryId }, { $set: { correctCategory } })
     user.save()
         .then(() => response.redirect(`/categories/${categoryId}`))
         .catch((error) => response.send('Error: The Comic could not be created' + error))
@@ -271,9 +272,9 @@ app.post('/categories/:categoryId/:id/edit', async (request, response) => {
         const correctCategory = user.categories[categoryIndex]
 
         let itemIndex
-        for (var i = 0; i < correctCategory.categoryPage.length; i++) {
-            if (correctCategory.categoryPage[i].slug == itemId) {
-                itemIndex = i
+        for (var j = 0; j < correctCategory.categoryPage.length; j++) {
+            if (correctCategory.categoryPage[j].slug == itemId) {
+                itemIndex = j
             }
         }
         const correctItem = correctCategory.categoryPage[itemIndex]
@@ -286,7 +287,7 @@ app.post('/categories/:categoryId/:id/edit', async (request, response) => {
         correctItem.type = request.body.type,
         correctItem.slug = request.body.slug
         
-        const userUpdate = await User.findOneAndUpdate({'categories.categoryPage.slug': itemId}, {$set:{'categories.$[categoryIndex].categoryPage.$[itemIndex]': correctItem}}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId},{'itemIndex.slug': itemId}]})
+        await User.findOneAndUpdate({'categories.categoryPage.slug': itemId}, {$set:{'categories.$[categoryIndex].categoryPage.$[itemIndex]': correctItem}}, {arrayFilters: [{'categoryIndex.categorySlug': categoryId},{'itemIndex.slug': itemId}]})
 
         response.redirect(`/categories/${categoryId}/${correctItem.slug}`)
     } catch (error) {

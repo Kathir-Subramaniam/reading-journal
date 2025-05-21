@@ -9,12 +9,16 @@
     "dev": "nodemon server.js",
     "dev:instrumented": "nyc --report-dir=coverage/playwright --reporter=lcov --reporter=text node server.js",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:unitandintegration": "jest --coverage --coverageDirectory=coverage/jest",
     "test:e2e": "start-server-and-test dev:instrumented http://localhost:3000 \"npx playwright test tests/e2e/all.spec.js\"",
+    "lint": "eslint .",
     "coverage:merge": "istanbul-merge --out coverage/combined/coverage.json \"coverage/jest/*.json\" \"coverage/playwright/*.json\"",
     "coverage:report": "nyc report --reporter=lcov --report-dir=coverage/combined --temp-dir=coverage/combined",
     "coverage:view": "npx serve coverage/combined",
-    "coverage:full": "npm run test:unitandintegration && npm run test:e2e && npm run coverage:merge && npm run coverage:report && npm run coverage:view"
+    "coverage:full": "npm run lint && npm run test:unitandintegration && npm run test:e2e && npm run coverage:merge && npm run coverage:report && npm run coverage:view",
+    "prepare": "husky install",
+    "check": "npm run lint && npm run test:unitandintegration && npm run test:e2e"
   },
   "repository": {
     "type": "git",
@@ -37,8 +41,12 @@
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
+    "@eslint/js": "^9.27.0",
     "@playwright/test": "^1.52.0",
     "babel-jest": "^29.7.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.1.0",
+    "husky": "^8.0.0",
     "istanbul": "^0.4.5",
     "istanbul-merge": "^2.0.0",
     "jest": "^29.7.0",

@@ -1,6 +1,6 @@
 import {config} from 'dotenv'
 import mongoose from "mongoose";
-import { error } from "console";
+// import { error } from "console";
 
 config()
 const uri = process.env.DB_URI 
